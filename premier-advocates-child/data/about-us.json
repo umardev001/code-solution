@@ -1,0 +1,1867 @@
+[
+ {
+  "id": "9b8e214",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c hero hero-about",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "c9a0699",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "e961233",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c hero-content",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "7ddb9c6",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "About Premier Advocates",
+         "header_size": "h1"
+        },
+        "elements": []
+       },
+       {
+        "id": "0737c80",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"lead-sans\">Independent support. Clear guidance.<br/>Stronger outcomes.</p>",
+         "_css_classes": "lead-sans"
+        },
+        "elements": []
+       },
+       {
+        "id": "a431970",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"body\">We provide practical, confidential and independent employment support for non-union members and anyone facing workplace issues.</p>",
+         "_css_classes": "body"
+        },
+        "elements": []
+       },
+       {
+        "id": "33a38b3",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c gold-rule",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "97e8612",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c container about-cols",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "5591007",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c about-col",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "1a22da6",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Who We Are",
+       "header_size": "h2",
+       "_css_classes": "h-underline"
+      },
+      "elements": []
+     },
+     {
+      "id": "4ea67e3",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>Premier Advocates provides independent employment support and representation for individuals facing workplace issues. We work with non-union members and people at all stages of their working life, offering clear, practical guidance to help you understand your position, protect your interests and move forward with confidence.</p>"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "8b3c474",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c about-col",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "05219e6",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Our Mission",
+       "header_size": "h2",
+       "_css_classes": "h-underline"
+      },
+      "elements": []
+     },
+     {
+      "id": "3ac95fc",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>To make expert, independent employment support accessible, providing clear guidance, practical solutions and confident representation for individuals facing workplace challenges.</p>"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "d498cc1",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c about-col",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "39b928d",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Our Values",
+       "header_size": "h2",
+       "_css_classes": "h-underline"
+      },
+      "elements": []
+     },
+     {
+      "id": "d818c62",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c value-list",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "04c9a89",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "04e90cb",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-independence \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "4129b92",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "d681b4f",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Independence",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "5b2e1d3",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We act in your best interests, free from union or employer influence.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "8399793",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "9fea5c2",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-integrity \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "3152ee5",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "1053891",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Integrity",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "4a37b60",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We provide honest, clear and realistic advice.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "2ae522c",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "a2f5b33",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-practicality \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "8e3b9ab",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "d9a8f25",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Practicality",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "1b06fa8",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We focus on real-world solutions that help you move forward with confidence.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "dd6a79f",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c approach",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "caa4041",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c approach-media",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "7490e96",
+      "elType": "widget",
+      "widgetType": "icon-list",
+      "settings": {
+       "icon_list": [
+        {
+         "_id": "40bdc5e",
+         "text": "Independent",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "07ae31b",
+         "text": "Practical",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "dc5df23",
+         "text": "Confidential",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "d2ba13f",
+         "text": "Support",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "cdf34ff",
+         "text": "For a Brighter",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "9a27f07",
+         "text": "Tomorrow",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        }
+       ],
+       "view": "traditional",
+       "_css_classes": "hero-tagline"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "19bd2dd",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c approach-text",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "5a585af",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Our Approach",
+       "header_size": "h2"
+      },
+      "elements": []
+     },
+     {
+      "id": "dbc113f",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>We take a clear, structured and supportive approach, tailored to your individual situation. We listen to understand your concerns, explain your options in plain language and provide practical guidance and representation to help you achieve the best possible outcome.</p>"
+      },
+      "elements": []
+     },
+     {
+      "id": "20133a4",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>Our focus is always on giving you the information, support and confidence you need to make informed decisions about what happens next.</p>"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "b71dcf1",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c how-work",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "9cfdf06",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "fb1eb3a",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c section-head",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "e1592da",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "How We Work",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "0d04c96",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"sub\">A simple, supportive process focused on your needs.</p>",
+         "_css_classes": "sub"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "0056f98",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c work-steps",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "d4228cb",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li work-step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "749cfd1",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "1",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "13a18ff",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-listen \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "74fa8f3",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "f40769b",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Listen",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "0bb2583",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We take the time to understand your situation, concerns and goals in a confidential and respectful setting.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "a1dddce",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li work-step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "5cfb20c",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "2",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "71a1b50",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-advise-2 \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "ca52991",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "a5452c3",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Advise",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "96c219a",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We explain your rights and options clearly, providing practical, tailored guidance so you can make informed decisions.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "3e383b8",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li work-step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "b1e5160",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "3",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "4283006",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-integrity \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "35a71aa",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "4120e72",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "b428b63",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We provide ongoing support and representation, helping you move forward with confidence at every stage.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "1d37ec7",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c container who-why",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "a610957",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "4b21e9f",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Who We Help",
+       "header_size": "h2",
+       "_css_classes": "h-underline"
+      },
+      "elements": []
+     },
+     {
+      "id": "594d8ba",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p class=\"intro\">We support non-union members and individuals<br/>across a wide range of roles and sectors, including:</p>",
+       "_css_classes": "intro"
+      },
+      "elements": []
+     },
+     {
+      "id": "0818cb1",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c who-grid",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "713e25b",
+        "elType": "widget",
+        "widgetType": "icon-list",
+        "settings": {
+         "icon_list": [
+          {
+           "_id": "ic-employees",
+           "text": "<span>Employees</span>",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "ic-integrity",
+           "text": "<span>Managers</span>",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "ic-senior-executives",
+           "text": "<span>Senior Executives</span>",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          }
+         ],
+         "view": "traditional"
+        },
+        "elements": []
+       },
+       {
+        "id": "afe0037",
+        "elType": "widget",
+        "widgetType": "icon-list",
+        "settings": {
+         "icon_list": [
+          {
+           "_id": "ic-professionals",
+           "text": "<span>Professionals</span>",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "ic-public-sector-workers",
+           "text": "<span>Public Sector Workers</span>",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "ic-integrity",
+           "text": "<span>And anyone facing<br/>workplace challenges</span>",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          }
+         ],
+         "view": "traditional"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "1d64121",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "7c1eab5",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Why Clients Choose Us",
+       "header_size": "h2",
+       "_css_classes": "h-underline"
+      },
+      "elements": []
+     },
+     {
+      "id": "773142c",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c why-list",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "ff56c4f",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "6ad70fb",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-independent-and-confidential-support \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "6ea06e0",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "1d632d7",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Independent and confidential support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "c5c5f97",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Your situation is treated with discretion and respect.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "40725cf",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "ea7906c",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-clear-and-practical-guidance \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "408bc31",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "08e27bc",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Clear and practical guidance",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "75c0f7d",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We explain complex issues in plain language.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "d4e0a0d",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "9eb092b",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-integrity \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "5255442",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "db8dd33",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Experienced and balanced perspective",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "70555db",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We help you see the bigger picture and consider all options.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "1a0eb8c",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "44227b7",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-support-at-every-stage \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "285bdcb",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "4304fa0",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Support at every stage",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "eb634be",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>From initial advice to representation, we’re with you when it matters.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "658b12c",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c cta-dark cta-about",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "529d0ec",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container inner",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "de816dc",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "714e0bc",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Take the next step with confidence",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "8cc8ae1",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Get independent, practical support for your workplace situation.</p>"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "0df15a5",
+      "elType": "widget",
+      "widgetType": "button",
+      "settings": {
+       "text": "Book a Consultation",
+       "link": {
+        "url": "{{url:book-a-consultation}}",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "size": "sm",
+       "_css_classes": "btn btn-gold"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ }
+]

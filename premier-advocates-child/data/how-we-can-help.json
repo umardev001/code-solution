@@ -1,0 +1,1770 @@
+[
+ {
+  "id": "9ae3381",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c hero hero-help",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "dc92718",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "e642f00",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c hero-content",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "4da3999",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "How We Can Help",
+         "header_size": "h1"
+        },
+        "elements": []
+       },
+       {
+        "id": "00eed6a",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"h1-sub\">Employee Representation</p>",
+         "_css_classes": "h1-sub"
+        },
+        "elements": []
+       },
+       {
+        "id": "0e73647",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"lead-sans\">Independent representation and practical support through workplace processes.</p>",
+         "_css_classes": "lead-sans"
+        },
+        "elements": []
+       },
+       {
+        "id": "4e21530",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"body\">We stand with employees to help them understand their position, protect their interests and navigate complex workplace issues with confidence. From disciplinary meetings to grievances, settlement discussions and employment tribunal support, we provide clear, practical guidance at every stage.</p>",
+         "_css_classes": "body"
+        },
+        "elements": []
+       },
+       {
+        "id": "d8a4905",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c hero-buttons",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "46db60c",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Book a Consultation",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-gold"
+          },
+          "elements": []
+         },
+         {
+          "id": "d37d3eb",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Tell Us What Happened",
+           "link": {
+            "url": "{{url:contact}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-outline"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "c0e09e2",
+    "elType": "widget",
+    "widgetType": "icon-list",
+    "settings": {
+     "icon_list": [
+      {
+       "_id": "a6baaa0",
+       "text": "Independent",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "e7591c2",
+       "text": "Support",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "3d7535f",
+       "text": "Fair Workplaces",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "926cbe5",
+       "text": "Brighter Futures",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      }
+     ],
+     "view": "traditional",
+     "_css_classes": "hero-tagline tilted"
+    },
+    "elements": []
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "4587585",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c features features-3 features-help",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "3c34810",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container features-grid",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "ec58995",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c feature",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "f894ee2",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<span class=\"ic ic-confidential-and-independent \" aria-hidden=\"true\"></span>",
+         "_css_classes": "ic-wrap"
+        },
+        "elements": []
+       },
+       {
+        "id": "9581aff",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "849b9cb",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Confidential and independent",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "bbd9990",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>Your situation is treated with<br/>discretion and respect.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "ec45f22",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c feature",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "0c2a7ef",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<span class=\"ic ic-focused-on-employees \" aria-hidden=\"true\"></span>",
+         "_css_classes": "ic-wrap"
+        },
+        "elements": []
+       },
+       {
+        "id": "7de4a2a",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "f0688ba",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Focused on employees",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "e683aed",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We represent and support non-union<br/>members across the workplace.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "2905302",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c feature",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "b0ee5f6",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<span class=\"ic ic-practical-strategic-guidance \" aria-hidden=\"true\"></span>",
+         "_css_classes": "ic-wrap"
+        },
+        "elements": []
+       },
+       {
+        "id": "080b55c",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "e4da209",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Practical, strategic support",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "8b916ff",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>Clear guidance to help you move<br/>forward with confidence.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "8a4ba06",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c container rep",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "90c91ec",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "3ba22ff",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "What Employee Representation Means",
+       "header_size": "h2"
+      },
+      "elements": []
+     },
+     {
+      "id": "f31e4ad",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>Employee representation means having an experienced, independent professional by your side during workplace processes. We provide impartial support, explain your options in plain language and help you prepare for meetings, hearings and negotiations.</p>"
+      },
+      "elements": []
+     },
+     {
+      "id": "09a76fe",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>Our role is to ensure you are treated fairly, your rights are considered and you can make informed decisions about the next steps.</p>"
+      },
+      "elements": []
+     },
+     {
+      "id": "d71b0a7",
+      "elType": "widget",
+      "widgetType": "button",
+      "settings": {
+       "text": "Book a Consultation",
+       "link": {
+        "url": "{{url:book-a-consultation}}",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "size": "sm",
+       "_css_classes": "btn btn-gold"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "b29ded2",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c for-box",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "37c0971",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "Who Our Support Is For",
+       "header_size": "h2"
+      },
+      "elements": []
+     },
+     {
+      "id": "2498a60",
+      "elType": "widget",
+      "widgetType": "icon-list",
+      "settings": {
+       "icon_list": [
+        {
+         "_id": "ic-employees-facing-disciplinary-action",
+         "text": "<span>Employees facing disciplinary action</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-grievance-support",
+         "text": "<span>Those raising a grievance</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-disciplinary-support",
+         "text": "<span>Employees facing redundancy</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-focused-on-employees",
+         "text": "<span>Employees involved in capability processes</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-individuals-facing-workplace-investigations",
+         "text": "<span>Individuals facing workplace investigations</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-those-considering-settlement-agreements",
+         "text": "<span>Those considering settlement agreements</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-employment-tribunal-support",
+         "text": "<span>Employees preparing for an employment tribunal</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        },
+        {
+         "_id": "ic-focused-on-employees",
+         "text": "<span>Senior executives and professionals</span>",
+         "selected_icon": {
+          "value": "",
+          "library": ""
+         },
+         "link": {
+          "url": "",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         }
+        }
+       ],
+       "view": "traditional"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "c77f75a",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c help-services",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "93a54b8",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container-wide",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "04441fa",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c section-head",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "bce9c12",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "How We Can Help",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "b9f5265",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"sub\">A clear and structured approach to support you at every stage.</p>",
+         "_css_classes": "sub"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "b4e6584",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c service-grid",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "01a3edc",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c service-row",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "e5c0828",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-grievance-support \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "fa5754f",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "8e62bc6",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Confidential Independent Advice",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "a8b1c90",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Talk through your situation in a safe and confidential environment. We help you understand your rights, options and the likely process ahead.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "bb8e6f9",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-confidential-independent-advice chev\" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "4c5b053",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Find out more about Confidential Independent Advice",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "pa-stretch"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "53a352a",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c service-row",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "3fdd3bc",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-disciplinary-support \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "0f8a691",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "e9a49d4",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Support Through Meetings and Hearings",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "5c21ee7",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We can represent you or support you during disciplinary meetings, grievance hearings, capability meetings and workplace investigations.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "14e0bbb",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-confidential-independent-advice chev\" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "b1180ed",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Find out more about Support Through Meetings and Hearings",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "pa-stretch"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "01d5d06",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c service-row",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "1e1414a",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-those-considering-settlement-agreements \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "5547d34",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "964f3ed",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Negotiation and Settlement Guidance",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "bc97ac2",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We provide practical advice on settlement agreements and help you consider the terms, implications and next steps.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "a70ac2f",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-confidential-independent-advice chev\" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "d95eb90",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Find out more about Negotiation and Settlement Guidance",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "pa-stretch"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "aa9480d",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c service-row",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "fb5d786",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-employment-tribunal-support-2 \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "f1efed2",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "3dcd55f",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Employment Tribunal Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "9a53abb",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We help you prepare for an employment tribunal, including reviewing your case, explaining the process and providing representation where needed.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "a57da21",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-confidential-independent-advice chev\" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "5c563d9",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Find out more about Employment Tribunal Support",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "pa-stretch"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "af9d181",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c service-row",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "51a93ee",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-focused-on-employees \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "3cc7bcc",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "5a6e286",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Tailored, Practical Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "353dd7b",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Every situation is different. We provide support that is tailored to your specific circumstances, helping you make informed and confident decisions.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "9d000f9",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-confidential-independent-advice chev\" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "18c4ed5",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Find out more about Tailored, Practical Support",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "pa-stretch"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "42ba2fb",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c service-row",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "ff09996",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-disciplinary-support \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "2ead559",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "75ea887",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Clear Communication",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "207ef50",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We explain complex issues in plain language, keep you informed and ensure you understand your options at each stage.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "d166baf",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-confidential-independent-advice chev\" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "0888bf6",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Find out more about Clear Communication",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "pa-stretch"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "e0532e4",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c band band-help",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "6f75c18",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "a9b3cd0",
+      "elType": "widget",
+      "widgetType": "heading",
+      "settings": {
+       "title": "You don’t have to face this alone",
+       "header_size": "h2"
+      },
+      "elements": []
+     },
+     {
+      "id": "1a65bfd",
+      "elType": "widget",
+      "widgetType": "text-editor",
+      "settings": {
+       "editor": "<p>Get practical, independent support and take the next step with confidence. Book a consultation to discuss your situation with an experienced adviser.</p>"
+      },
+      "elements": []
+     },
+     {
+      "id": "b40aead",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c hero-buttons",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "9e0e73d",
+        "elType": "widget",
+        "widgetType": "button",
+        "settings": {
+         "text": "Book a Consultation",
+         "link": {
+          "url": "{{url:book-a-consultation}}",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "sm",
+         "_css_classes": "btn btn-gold"
+        },
+        "elements": []
+       },
+       {
+        "id": "885b78d",
+        "elType": "widget",
+        "widgetType": "button",
+        "settings": {
+         "text": "Tell Us What Happened",
+         "link": {
+          "url": "{{url:contact}}",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "sm",
+         "_css_classes": "btn btn-outline-light btn"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "a6e9e60",
+    "elType": "widget",
+    "widgetType": "icon-list",
+    "settings": {
+     "icon_list": [
+      {
+       "_id": "9c3c70c",
+       "text": "Support",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "aacaf3d",
+       "text": "Clarity",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "0625b8a",
+       "text": "Confidence",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "e3c8e21",
+       "text": "Fair Outcomes",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      }
+     ],
+     "view": "traditional",
+     "_css_classes": "hero-tagline"
+    },
+    "elements": []
+   }
+  ],
+  "isInner": false
+ }
+]

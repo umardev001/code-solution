@@ -1,0 +1,557 @@
+[
+ {
+  "id": "5f3ce46",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c site-footer footer-home",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "53779b2",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container footer-grid",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "022eb42",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c footer-col footer-brand",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "ad6f0a8",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c brand",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "47729d1",
+          "elType": "widget",
+          "widgetType": "image",
+          "settings": {
+           "image": {
+            "url": "{{img:logo-footer.svg}}",
+            "id": "",
+            "alt": "Premier Advocates logo"
+           },
+           "image_size": "full",
+           "link_to": "custom",
+           "link": {
+            "url": "{{url:home}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "_css_classes": "brand-logo"
+          },
+          "elements": []
+         },
+         {
+          "id": "61dbd8e",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c brand-text",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "c91015e",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Premier Advocates",
+             "header_size": "div",
+             "link": {
+              "url": "{{url:home}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "_css_classes": "brand-name"
+            },
+            "elements": []
+           },
+           {
+            "id": "1bd95c9",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Stand With Confidence",
+             "header_size": "div",
+             "_css_classes": "brand-tag"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "dca6fbe",
+        "elType": "widget",
+        "widgetType": "icon-list",
+        "settings": {
+         "view": "traditional",
+         "icon_list": [
+          {
+           "_id": "ic-mail",
+           "text": "office@premieradvocates.co.uk",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "mailto:office@premieradvocates.co.uk",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "ic-pin",
+           "text": "United Kingdom",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          }
+         ],
+         "_css_classes": "contact-list"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "1794316",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c footer-col footer-links",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "36db886",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c footer-links-col",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "82969e8",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Quick Links",
+           "header_size": "h4"
+          },
+          "elements": []
+         },
+         {
+          "id": "76b0f03",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+           "view": "traditional",
+           "icon_list": [
+            {
+             "_id": "5c9324f",
+             "text": "Home",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:home}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            },
+            {
+             "_id": "a80348f",
+             "text": "About Us",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:about-us}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            },
+            {
+             "_id": "3526dd9",
+             "text": "Problems at Work",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:home}}#problems",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            }
+           ],
+           "_css_classes": "footer-menu"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "6038edc",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c col2",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "44192d3",
+          "elType": "widget",
+          "widgetType": "icon-list",
+          "settings": {
+           "view": "traditional",
+           "icon_list": [
+            {
+             "_id": "3e6c0a9",
+             "text": "How We Can Help",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            },
+            {
+             "_id": "f7a7149",
+             "text": "Senior Executive Support",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:senior-executive-support}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            },
+            {
+             "_id": "9550115",
+             "text": "Book a Consultation",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:book-a-consultation}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            },
+            {
+             "_id": "c752b84",
+             "text": "Contact",
+             "selected_icon": {
+              "value": "",
+              "library": ""
+             },
+             "link": {
+              "url": "{{url:contact}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             }
+            }
+           ],
+           "_css_classes": "footer-menu"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "43e0646",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c footer-col footer-legal",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "482c01c",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Legal",
+         "header_size": "h4"
+        },
+        "elements": []
+       },
+       {
+        "id": "90ca53b",
+        "elType": "widget",
+        "widgetType": "icon-list",
+        "settings": {
+         "view": "traditional",
+         "icon_list": [
+          {
+           "_id": "62d802d",
+           "text": "Privacy Policy",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "{{url:privacy-policy}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "e14a532",
+           "text": "Terms of Use",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "{{url:terms-of-use}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "48cc38b",
+           "text": "Cookies",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "{{url:cookies}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          }
+         ],
+         "_css_classes": "footer-menu"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "d7fb794",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c footer-col footer-copy",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "6cfc6a3",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>&copy; {{year}} Premier Advocates.<br>All rights reserved.</p>"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ }
+]

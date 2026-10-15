@@ -1,0 +1,2900 @@
+[
+ {
+  "id": "57c6e42",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c hero hero-home",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "9d3701a",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "14a1c9e",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c hero-content",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "4da8c6c",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Practical support when things go wrong at work",
+         "header_size": "h1"
+        },
+        "elements": []
+       },
+       {
+        "id": "8362e32",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"body\">We provide practical support and representation for employees and professionals facing workplace issues. Our experienced team helps you understand your position, protect your interests and move forward with confidence.</p>",
+         "_css_classes": "body"
+        },
+        "elements": []
+       },
+       {
+        "id": "ece6dc7",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c hero-buttons",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "05d8016",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Book a Consultation",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-gold btn-arrow"
+          },
+          "elements": []
+         },
+         {
+          "id": "b29cfc4",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Tell Us What Happened",
+           "link": {
+            "url": "{{url:contact}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-outline"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "6239162",
+    "elType": "widget",
+    "widgetType": "icon-list",
+    "settings": {
+     "icon_list": [
+      {
+       "_id": "ac25890",
+       "text": "People",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "af7935b",
+       "text": "Support",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "e488ec5",
+       "text": "Fair Workplaces",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "7b90158",
+       "text": "Brighter Futures",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      }
+     ],
+     "view": "traditional",
+     "_css_classes": "hero-tagline"
+    },
+    "elements": []
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "3ed0689",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c features features-3",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "4374505",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container features-grid",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "3e30cda",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c feature",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "7dc27df",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<span class=\"ic ic-confidential-and-independent \" aria-hidden=\"true\"></span>",
+         "_css_classes": "ic-wrap"
+        },
+        "elements": []
+       },
+       {
+        "id": "c817b22",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "ce36961",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Confidential and independent",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "c75bb6b",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>Your situation is treated with discretion and respect.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "0d759de",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c feature",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "5ff6167",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<span class=\"ic ic-focused-on-employees \" aria-hidden=\"true\"></span>",
+         "_css_classes": "ic-wrap"
+        },
+        "elements": []
+       },
+       {
+        "id": "a738658",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "22117f3",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Focused on employees",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "e5fbb02",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We represent and support non-union members across the workplace.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "94d31ab",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c feature",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "1406be8",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<span class=\"ic ic-practical-strategic-guidance \" aria-hidden=\"true\"></span>",
+         "_css_classes": "ic-wrap"
+        },
+        "elements": []
+       },
+       {
+        "id": "36acad5",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "379c94f",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Practical, strategic guidance",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "6205551",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>Clear advice to help you move forward with confidence.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "3d47189",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c problems",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   },
+   "_element_id": "problems"
+  },
+  "elements": [
+   {
+    "id": "ae1315c",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "558322f",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c section-head",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "1fa6a73",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Problems at Work",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "707d7df",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"sub\">Explore our main areas of support. Find out more about the issues you’re facing and how we can help.</p>",
+         "_css_classes": "sub"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "87fd703",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c problem-grid",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "e472f76",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c problem-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "fc92112",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c media",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "e3b2a7f",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+             "image": {
+              "url": "{{img:card-tribunal}}",
+              "id": "",
+              "alt": ""
+             },
+             "image_size": "full"
+            },
+            "elements": []
+           },
+           {
+            "id": "83306be",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c circle",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "033f3f7",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+               "html": "<span class=\"ic ic-employment-tribunal-support \" aria-hidden=\"true\"></span>",
+               "_css_classes": "ic-wrap"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "73d3add",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c body",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "3b6ed3b",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Employment Tribunal Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "b409464",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Practical support and representation<br/>through the Employment Tribunal process.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "9222ab6",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Learn more",
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "learn-more"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "a99e994",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c problem-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "859581e",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c media",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "8b5a6d5",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+             "image": {
+              "url": "{{img:card-disciplinary}}",
+              "id": "",
+              "alt": ""
+             },
+             "image_size": "full"
+            },
+            "elements": []
+           },
+           {
+            "id": "aaafe60",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c circle",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "53bc1ea",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+               "html": "<span class=\"ic ic-disciplinary-support \" aria-hidden=\"true\"></span>",
+               "_css_classes": "ic-wrap"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "745e384",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c body",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "c1abfb6",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Disciplinary Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "eae0275",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Guidance and representation at all stages<br/>of the disciplinary process.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "ae418cc",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Learn more",
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "learn-more"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "25a99d7",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c problem-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "a5bde83",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c media",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "658142d",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+             "image": {
+              "url": "{{img:card-pip}}",
+              "id": "",
+              "alt": ""
+             },
+             "image_size": "full"
+            },
+            "elements": []
+           },
+           {
+            "id": "8c991bc",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c circle",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "963cf3d",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+               "html": "<span class=\"ic ic-pip-performance-management \" aria-hidden=\"true\"></span>",
+               "_css_classes": "ic-wrap"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "4a2b23e",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c body",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "4e2106f",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "PIP &amp; Performance Management",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "b034ee9",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Support with performance improvement<br/>processes and capability concerns.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "622cc1b",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Learn more",
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "learn-more"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "304aba0",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c problem-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "856ba52",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c media",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "bf9596d",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+             "image": {
+              "url": "{{img:card-redundancy}}",
+              "id": "",
+              "alt": ""
+             },
+             "image_size": "full"
+            },
+            "elements": []
+           },
+           {
+            "id": "fca74f4",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c circle",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "f780ca7",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+               "html": "<span class=\"ic ic-focused-on-employees \" aria-hidden=\"true\"></span>",
+               "_css_classes": "ic-wrap"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "af119eb",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c body",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "38c4306",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Redundancy Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "0308f56",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Practical advice and representation<br/>if you’re at risk of redundancy or have been made redundant.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "45d910b",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Learn more",
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "learn-more"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "0424233",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c problem-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "0ea9c74",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c media",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "7c0564d",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+             "image": {
+              "url": "{{img:card-sickness}}",
+              "id": "",
+              "alt": ""
+             },
+             "image_size": "full"
+            },
+            "elements": []
+           },
+           {
+            "id": "c0db84f",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c circle",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "7df9fcf",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+               "html": "<span class=\"ic ic-sickness-absence-support \" aria-hidden=\"true\"></span>",
+               "_css_classes": "ic-wrap"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "6ca9d21",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c body",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "ef62b09",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Sickness Absence Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "126b704",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Guidance and support with long-term<br/>or recurring sickness absence issues.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "dcadadb",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Learn more",
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "learn-more"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "0d3013a",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c problem-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "b316bfe",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c media",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "6de8b19",
+            "elType": "widget",
+            "widgetType": "image",
+            "settings": {
+             "image": {
+              "url": "{{img:card-grievance}}",
+              "id": "",
+              "alt": ""
+             },
+             "image_size": "full"
+            },
+            "elements": []
+           },
+           {
+            "id": "1e41cfd",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c circle",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "0de8f45",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+               "html": "<span class=\"ic ic-grievance-support \" aria-hidden=\"true\"></span>",
+               "_css_classes": "ic-wrap"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "b5155ad",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c body",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "c47da81",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Grievance Support",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "3e0eb5c",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>Help with raising a grievance or responding<br/>to a grievance made against you.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "676b95f",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Learn more",
+             "link": {
+              "url": "{{url:how-we-can-help}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "learn-more"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "398acee",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c help-steps",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "c62559f",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "ff3632c",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c section-head",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "f5a3cf6",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "How We Can Help",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "dbaf44a",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"sub\">A clear and structured approach to support you at every stage.</p>",
+         "_css_classes": "sub"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "8247531",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c help-grid",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "f87fc05",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c help-box",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "1d44010",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-understand \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "166f89d",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Understand",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "1610d2d",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We listen and take time to understand your situation.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "47e9079",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c help-box",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "fe9af82",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-advise \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "058cc3e",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Advise",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "9d3962d",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We explain your options clearly, including the potential outcomes.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "edefa5a",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c help-box",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "07d8ebc",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-represent \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "c1cb00f",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Represent",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "cf81ad4",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We provide professional representation and support throughout the process.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "dbe66fd",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c help-box",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "37c6447",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-guide \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "d6023f3",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Guide",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "5343870",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We help you prepare, manage key meetings and navigate complex workplace processes.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "b056450",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c help-box",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "6f7c159",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+           "html": "<span class=\"ic ic-move-forward \" aria-hidden=\"true\"></span>",
+           "_css_classes": "ic-wrap"
+          },
+          "elements": []
+         },
+         {
+          "id": "574481b",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Move Forward",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "999a683",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We focus on achieving the best possible outcome for your situation.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "e8267b6",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c band band-home",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "08d97d3",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "703d78d",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c inner",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "540cc00",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Senior Executive Support",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "92a69b0",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>For senior executives, directors and professionals, workplace disputes can involve reputation, career progression and future opportunities. We provide tailored, discreet and strategic support to help you navigate complex workplace challenges.</p>"
+        },
+        "elements": []
+       },
+       {
+        "id": "751d133",
+        "elType": "widget",
+        "widgetType": "button",
+        "settings": {
+         "text": "Find Out More",
+         "link": {
+          "url": "{{url:senior-executive-support}}",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "sm",
+         "_css_classes": "btn btn-gold btn-arrow"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "f243d27",
+    "elType": "widget",
+    "widgetType": "icon-list",
+    "settings": {
+     "icon_list": [
+      {
+       "_id": "08b2ae0",
+       "text": "Experience",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "74f1291",
+       "text": "Perspective",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "ca0d057",
+       "text": "Strategy",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "1b663a3",
+       "text": "A Stronger",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      },
+      {
+       "_id": "259ee61",
+       "text": "Tomorrow",
+       "selected_icon": {
+        "value": "",
+        "library": ""
+       },
+       "link": {
+        "url": "",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       }
+      }
+     ],
+     "view": "traditional",
+     "_css_classes": "hero-tagline"
+    },
+    "elements": []
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "157e8f7",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c options options-compact",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "3ff6c4a",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "0c830b8",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c section-head",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "287cdca",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Consultation Options",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "d6501ef",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"sub\">Choose the option that’s right for you. Consultations are available by phone or video, so you can speak to us from wherever you are.</p>",
+         "_css_classes": "sub"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "09d714d",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c option-grid",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "1057a1c",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c option-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "194075e",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c option-top",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "d36222d",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-30-minute-advice-call \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           },
+           {
+            "id": "2dfa8af",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "4c8e558",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+               "title": "30-Minute Advice Call",
+               "header_size": "h3"
+              },
+              "elements": []
+             },
+             {
+              "id": "5093cdd",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+               "editor": "<p class=\"meta\">Phone or video</p>",
+               "_css_classes": "meta"
+              },
+              "elements": []
+             },
+             {
+              "id": "37fe321",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+               "editor": "<p class=\"price\">£95</p>",
+               "_css_classes": "price"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "66baa16",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p class=\"desc\">A focused, targeted consultation designed to quickly clarify your situation and give practical guidance.</p>",
+           "_css_classes": "desc"
+          },
+          "elements": []
+         },
+         {
+          "id": "4f3bb32",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Book This Consultation",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-gold btn-block btn-arrow"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "ba0d265",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c option-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "7f889d8",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c option-top",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "ffa0fce",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-60-minute-advice-call \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           },
+           {
+            "id": "c2a39a9",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "84913a7",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+               "title": "60-Minute Advice Call",
+               "header_size": "h3"
+              },
+              "elements": []
+             },
+             {
+              "id": "f8b1735",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+               "editor": "<p class=\"meta\">Phone or video</p>",
+               "_css_classes": "meta"
+              },
+              "elements": []
+             },
+             {
+              "id": "f14dacb",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+               "editor": "<p class=\"price\">£190</p>",
+               "_css_classes": "price"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "2084de2",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p class=\"desc\">A comprehensive, in-depth consultation that gives you the time and space to discuss your situation fully.</p>",
+           "_css_classes": "desc"
+          },
+          "elements": []
+         },
+         {
+          "id": "69eed1a",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Book This Consultation",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-gold btn-block btn-arrow"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "2f53a7e",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c option-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "757efd1",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c option-top",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "22f478c",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-guide \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           },
+           {
+            "id": "9430853",
+            "elType": "container",
+            "settings": {
+             "content_width": "full",
+             "css_classes": "pa-c",
+             "flex_direction": "column",
+             "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+             },
+             "flex_gap": {
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "unit": "px"
+             }
+            },
+            "elements": [
+             {
+              "id": "b2c5b00",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+               "title": "Case Review + 30-Minute Consultation",
+               "header_size": "h3"
+              },
+              "elements": []
+             },
+             {
+              "id": "d4826a9",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+               "editor": "<p class=\"meta\">Phone or video</p>",
+               "_css_classes": "meta"
+              },
+              "elements": []
+             },
+             {
+              "id": "73f02a6",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+               "editor": "<p class=\"price\">£290</p>",
+               "_css_classes": "price"
+              },
+              "elements": []
+             }
+            ],
+            "isInner": true
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "56cb20b",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p class=\"desc\">A detailed, structured service designed to review your key documents and provide tailored advice on your next steps.</p>",
+           "_css_classes": "desc"
+          },
+          "elements": []
+         },
+         {
+          "id": "b66c37a",
+          "elType": "widget",
+          "widgetType": "button",
+          "settings": {
+           "text": "Book This Consultation",
+           "link": {
+            "url": "{{url:book-a-consultation}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "size": "sm",
+           "_css_classes": "btn btn-gold btn-block btn-arrow"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "91a4ab4",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c cta-dark cta-thin",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "e1a43c3",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container inner",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "b22e4cc",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "a6f03fb",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "You don’t have to face this alone",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "aa351f3",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Get practical, independent support and take the next step with confidence.</p>"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "aa94b8f",
+      "elType": "widget",
+      "widgetType": "button",
+      "settings": {
+       "text": "Book a Consultation",
+       "link": {
+        "url": "{{url:book-a-consultation}}",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "size": "sm",
+       "_css_classes": "btn btn-gold btn-arrow"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ }
+]

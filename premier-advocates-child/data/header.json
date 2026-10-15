@@ -1,0 +1,302 @@
+[
+ {
+  "id": "637b2a1",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c site-header",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "aeda536",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container header-top",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "b267a9f",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c brand",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "2712f17",
+        "elType": "widget",
+        "widgetType": "image",
+        "settings": {
+         "image": {
+          "url": "{{img:logo.svg}}",
+          "id": "",
+          "alt": "Premier Advocates logo"
+         },
+         "image_size": "full",
+         "link_to": "custom",
+         "link": {
+          "url": "{{url:home}}",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "_css_classes": "brand-logo"
+        },
+        "elements": []
+       },
+       {
+        "id": "9554af8",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c brand-text",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "af8f443",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Premier Advocates",
+           "header_size": "div",
+           "link": {
+            "url": "{{url:home}}",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           },
+           "_css_classes": "brand-name"
+          },
+          "elements": []
+         },
+         {
+          "id": "5310b6f",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Stand With Confidence",
+           "header_size": "div",
+           "_css_classes": "brand-tag"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "a0112f3",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c header-contact",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "7da9da9",
+        "elType": "widget",
+        "widgetType": "icon-list",
+        "settings": {
+         "view": "traditional",
+         "icon_list": [
+          {
+           "_id": "ic-mail",
+           "text": "office@premieradvocates.co.uk",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "mailto:office@premieradvocates.co.uk",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          },
+          {
+           "_id": "ic-pin",
+           "text": "United Kingdom",
+           "selected_icon": {
+            "value": "",
+            "library": ""
+           },
+           "link": {
+            "url": "",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+           }
+          }
+         ],
+         "_css_classes": "contact-list"
+        },
+        "elements": []
+       },
+       {
+        "id": "dc3ff32",
+        "elType": "widget",
+        "widgetType": "button",
+        "settings": {
+         "text": "Book a Consultation",
+         "link": {
+          "url": "{{url:book-a-consultation}}",
+          "is_external": "",
+          "nofollow": "",
+          "custom_attributes": ""
+         },
+         "size": "sm",
+         "_css_classes": "btn btn-gold btn-arrow"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   },
+   {
+    "id": "c1a24a1",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c main-nav",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "c5fc07e",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c container nav-inner",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "59369b0",
+        "elType": "widget",
+        "widgetType": "ekit-nav-menu",
+        "settings": {
+         "elementskit_nav_menu": "{{menu:primary}}",
+         "elementskit_menu_location": "primary",
+         "_css_classes": "pa-nav"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ }
+]

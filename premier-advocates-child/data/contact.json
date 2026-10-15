@@ -1,0 +1,1215 @@
+[
+ {
+  "id": "5cd9a1c",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c hero hero-contact",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "28d3d30",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "beef21d",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c hero-content",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "d543e8b",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Get in Touch",
+         "header_size": "h1"
+        },
+        "elements": []
+       },
+       {
+        "id": "67c280c",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"subhead\">We’re here to help.</p>",
+         "_css_classes": "subhead"
+        },
+        "elements": []
+       },
+       {
+        "id": "a0db7be",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"body\">If you have a question, want to discuss your situation or would like to book a consultation, we’d love to hear from you. Our team provides a confidential, supportive and practical response.</p>",
+         "_css_classes": "body"
+        },
+        "elements": []
+       },
+       {
+        "id": "612eed2",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c gold-rule",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "ced9305",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c contact-section-wrap",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "469cd75",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container contact-section",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "6696eda",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c contact-left",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "049e99b",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Contact Us",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "c72d4f4",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"intro\">Send us a message and we’ll get back to you as soon as possible.</p>",
+         "_css_classes": "intro"
+        },
+        "elements": []
+       },
+       {
+        "id": "68c2d82",
+        "elType": "widget",
+        "widgetType": "html",
+        "settings": {
+         "html": "<form action=\"{{ajax_url}}\" class=\"form-card\" id=\"contact-form\" method=\"post\"=\"\">\n<input type=\"hidden\" name=\"action\" value=\"pa_contact\"><input type=\"hidden\" name=\"pa_ts\" value=\"\"><div class=\"pa-hp\" aria-hidden=\"true\"><label>Leave this field empty<input type=\"text\" name=\"website\" tabindex=\"-1\" autocomplete=\"off\"></label></div><div class=\"field\">\n<label for=\"name\">Full Name <span class=\"req\">*</span></label>\n<input autocomplete=\"name\" id=\"name\" name=\"name\" placeholder=\"Your full name\" required=\"\" type=\"text\"/>\n</div>\n<div class=\"field\">\n<label for=\"email\">Email Address <span class=\"req\">*</span></label>\n<input autocomplete=\"email\" id=\"email\" name=\"email\" placeholder=\"your@emailaddress.co.uk\" required=\"\" type=\"email\"/>\n</div>\n<div class=\"field\">\n<label for=\"topic\">How can we help? <span class=\"req\">*</span></label>\n<select id=\"topic\" name=\"topic\" required=\"\">\n<option disabled=\"\" selected=\"\" value=\"\">Please select an option</option>\n<option>General enquiry</option>\n<option>Problems at work</option>\n<option>Senior executive support</option>\n<option>Booking a consultation</option>\n<option>Other</option>\n</select>\n</div>\n<div class=\"field\">\n<label for=\"message\">Your Message <span class=\"req\">*</span></label>\n<textarea id=\"message\" name=\"message\" placeholder=\"Tell us a little more about your situation...\" required=\"\"></textarea>\n</div>\n<label class=\"consent\">\n<input name=\"consent\" required=\"\" type=\"checkbox\"/>\n<span>I understand that the information I provide will be treated in confidence and used only to respond to my enquiry. <span class=\"req\">*</span></span>\n</label>\n<span class=\"btn btn-gold btn-block\"><button class=\"elementor-button\" type=\"submit\">Send Message</button></span>\n<p aria-live=\"polite\" class=\"form-status\" role=\"status\"></p>\n</form>",
+         "_css_classes": "pa-form-widget"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "0c178d7",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c contact-right",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "76664e8",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Other Ways to Get in Touch",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "c79d813",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p class=\"intro\">Choose the option that works best for you.</p>",
+         "_css_classes": "intro"
+        },
+        "elements": []
+       },
+       {
+        "id": "b275f96",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c way-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "37c5c86",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c way-icon",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "2ee8ab3",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-email-us \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "653a45c",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "c949ed8",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Email Us",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "5ff64cb",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>For general enquiries, questions or to discuss your situation, you can email us anytime.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "0af9824",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<a class=\"link\" href=\"mailto:office@premieradvocates.co.uk\">office@premieradvocates.co.uk</a>",
+             "_css_classes": "pa-link"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "94432a4",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c way-card",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "be21838",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c way-icon",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "1f3b1f8",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-our-location \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "bc8c0a5",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "d40401e",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Our Location",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "5c8999c",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We support clients across the<br/>United Kingdom.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "e5b7d4e",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p class=\"strong\">United Kingdom</p>",
+             "_css_classes": "strong"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "562c6d9",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c way-card plain",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "d7b6f46",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c way-icon",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "4b3d543",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-our-response-time \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "a41bec4",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "a1c5f72",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Our Response Time",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "702aaf1",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>We aim to respond to all enquiries as soon as possible, typically within 12 working hours.</p>"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "d62a6c0",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c way-card cream",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "02de653",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c way-icon",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "1e7325d",
+            "elType": "widget",
+            "widgetType": "html",
+            "settings": {
+             "html": "<span class=\"ic ic-prefer-to-book-a \" aria-hidden=\"true\"></span>",
+             "_css_classes": "ic-wrap"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         },
+         {
+          "id": "40eef81",
+          "elType": "container",
+          "settings": {
+           "content_width": "full",
+           "css_classes": "pa-c",
+           "flex_direction": "column",
+           "padding": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": true
+           },
+           "flex_gap": {
+            "column": "0",
+            "row": "0",
+            "isLinked": true,
+            "unit": "px"
+           }
+          },
+          "elements": [
+           {
+            "id": "92f7742",
+            "elType": "widget",
+            "widgetType": "heading",
+            "settings": {
+             "title": "Prefer to book a consultation?",
+             "header_size": "h3"
+            },
+            "elements": []
+           },
+           {
+            "id": "5c3714b",
+            "elType": "widget",
+            "widgetType": "text-editor",
+            "settings": {
+             "editor": "<p>If you’re ready to discuss your situation in more detail, you can book a consultation online at a time that suits you.</p>"
+            },
+            "elements": []
+           },
+           {
+            "id": "9e829f6",
+            "elType": "widget",
+            "widgetType": "button",
+            "settings": {
+             "text": "Book a Consultation",
+             "link": {
+              "url": "{{url:book-a-consultation}}",
+              "is_external": "",
+              "nofollow": "",
+              "custom_attributes": ""
+             },
+             "size": "sm",
+             "_css_classes": "btn btn-gold btn-arrow"
+            },
+            "elements": []
+           }
+          ],
+          "isInner": true
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "40123ce",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c steps-plain",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "63a7e5b",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container-wide",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "bdec1ff",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c section-head",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "f1117e6",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "What Happens Next?",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "a303ccc",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>A simple and clear process from your first contact to the support you need.</p>"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "5745b1d",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c steps",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "f3f8698",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "b329a6a",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "1",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "e0cddee",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Send Your Enquiry",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "88d9929",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>Use the form above or email us with a few details about your situation.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "7547316",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "5b8d3e7",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "2",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "0f12575",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "We’ll Be in Touch",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "6e3e963",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We aim to respond within 12 working hours to acknowledge your enquiry and discuss next steps.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "9b97932",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "bdd2528",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "3",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "f645381",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Discuss Your Needs",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "0838c51",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>We’ll take the time to understand your situation and advise on the most appropriate support.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       },
+       {
+        "id": "1c9645d",
+        "elType": "container",
+        "settings": {
+         "content_width": "full",
+         "css_classes": "pa-c pa-li step",
+         "flex_direction": "column",
+         "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+         },
+         "flex_gap": {
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "unit": "px"
+         }
+        },
+        "elements": [
+         {
+          "id": "302e2de",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "4",
+           "header_size": "div",
+           "_css_classes": "num"
+          },
+          "elements": []
+         },
+         {
+          "id": "ea37b42",
+          "elType": "widget",
+          "widgetType": "heading",
+          "settings": {
+           "title": "Get the Right Support",
+           "header_size": "h3"
+          },
+          "elements": []
+         },
+         {
+          "id": "988fbe4",
+          "elType": "widget",
+          "widgetType": "text-editor",
+          "settings": {
+           "editor": "<p>You can choose to book a consultation or continue the conversation by email.</p>"
+          },
+          "elements": []
+         }
+        ],
+        "isInner": true
+       }
+      ],
+      "isInner": true
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ },
+ {
+  "id": "2a7b064",
+  "elType": "container",
+  "settings": {
+   "content_width": "full",
+   "css_classes": "pa-c cta-dark",
+   "flex_direction": "column",
+   "padding": {
+    "unit": "px",
+    "top": "0",
+    "right": "0",
+    "bottom": "0",
+    "left": "0",
+    "isLinked": true
+   },
+   "flex_gap": {
+    "column": "0",
+    "row": "0",
+    "isLinked": true,
+    "unit": "px"
+   }
+  },
+  "elements": [
+   {
+    "id": "a341b41",
+    "elType": "container",
+    "settings": {
+     "content_width": "full",
+     "css_classes": "pa-c container inner",
+     "flex_direction": "column",
+     "padding": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+     },
+     "flex_gap": {
+      "column": "0",
+      "row": "0",
+      "isLinked": true,
+      "unit": "px"
+     }
+    },
+    "elements": [
+     {
+      "id": "89be024",
+      "elType": "container",
+      "settings": {
+       "content_width": "full",
+       "css_classes": "pa-c",
+       "flex_direction": "column",
+       "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+       },
+       "flex_gap": {
+        "column": "0",
+        "row": "0",
+        "isLinked": true,
+        "unit": "px"
+       }
+      },
+      "elements": [
+       {
+        "id": "75893a5",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+         "title": "Take the next step with confidence",
+         "header_size": "h2"
+        },
+        "elements": []
+       },
+       {
+        "id": "f467479",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+         "editor": "<p>Get practical, independent support from people who understand<br/>workplace challenges.</p>"
+        },
+        "elements": []
+       }
+      ],
+      "isInner": true
+     },
+     {
+      "id": "b386774",
+      "elType": "widget",
+      "widgetType": "button",
+      "settings": {
+       "text": "Book a Consultation",
+       "link": {
+        "url": "{{url:book-a-consultation}}",
+        "is_external": "",
+        "nofollow": "",
+        "custom_attributes": ""
+       },
+       "size": "sm",
+       "_css_classes": "btn btn-gold btn-arrow"
+      },
+      "elements": []
+     }
+    ],
+    "isInner": true
+   }
+  ],
+  "isInner": false
+ }
+]
