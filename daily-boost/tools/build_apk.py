@@ -40,7 +40,7 @@ def manifest(icon_res=None):
     app = Node('application', app_attrs, [login, main,
         receiver('.AlarmReceiver', False), receiver('.ActionReceiver', False), receiver('.SnoozeReceiver', False),
         receiver('.BootReceiver', True, ['android.intent.action.BOOT_COMPLETED', 'android.intent.action.MY_PACKAGE_REPLACED'])])
-    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 3), a('versionName', STR, '1.2')],
+    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 4), a('versionName', STR, '1.2.1')],
                 [Node('uses-sdk', [a('minSdkVersion', INT, 23), a('targetSdkVersion', INT, 28)])] +
                 [Node('uses-permission', [a('name', STR, p)]) for p in perms] + [app])
     return encode(root)

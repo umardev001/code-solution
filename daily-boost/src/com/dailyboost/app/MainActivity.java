@@ -182,6 +182,20 @@ public class MainActivity extends Activity {
         return h > 0 ? String.format(Locale.US, "%d:%02d:%02d", h, m, sec) : String.format(Locale.US, "%02d:%02d", m, sec);
     }
 
+    /** Shrinks the text size until it fits inside maxPx (never clipped). */
+    private void fitText(TextView tv, int maxPx, int maxSp, int minSp) {
+        android.graphics.Paint p = new android.graphics.Paint(tv.getPaint());
+        float density = getResources().getDisplayMetrics().scaledDensity;
+        String s = tv.getText().toString();
+        int sp = maxSp;
+        while (sp > minSp) {
+            p.setTextSize(sp * density);
+            if (p.measureText(s) <= maxPx) break;
+            sp--;
+        }
+        tv.setTextSize(sp);
+    }
+
     private static String atTime(long when) { return new SimpleDateFormat("h:mm a", Locale.getDefault()).format(new Date(when)); }
 
     private static boolean sameDay(long a, long b) {
@@ -377,14 +391,15 @@ public class MainActivity extends Activity {
             LinearLayout center = new LinearLayout(this);
             center.setOrientation(LinearLayout.VERTICAL);
             center.setGravity(Gravity.CENTER);
-            final TextView big = label(this, "--:--", ringSize > 120 ? 28 : 24, Color.WHITE, true);
+            final TextView big = label(this, "--:--", 28, Color.WHITE, true);
             big.setSingleLine(true);
-            big.setEllipsize(TextUtils.TruncateAt.END);
+            big.setEllipsize(null);
             big.setGravity(Gravity.CENTER);
-            center.addView(big);
-            TextView rem = label(this, "remaining", 11, Color.parseColor("#BFDBFE"), false);
+            center.addView(big, new LinearLayout.LayoutParams(-1, -2));
+            final TextView rem = label(this, "remaining", 11, Color.parseColor("#BFDBFE"), false);
             rem.setGravity(Gravity.CENTER);
-            center.addView(rem);
+            center.addView(rem, new LinearLayout.LayoutParams(-1, -2));
+            final int innerPx = (int) (d(ringSize) * 0.60f);
             ringBox.addView(center, new FrameLayout.LayoutParams(-1, -1));
             hrow.addView(ringBox, new LinearLayout.LayoutParams(d(ringSize), d(ringSize)));
 
@@ -412,6 +427,8 @@ public class MainActivity extends Activity {
                 long left = first.when - System.currentTimeMillis();
                 if (left <= 0) { rebuild(); return; }
                 big.setText(clock(left));
+                fitText(big, innerPx, left >= 3600000L ? 24 : 30, 14);
+                rem.setText(left >= 3600000L ? "hr : min : sec" : "min : sec");
                 ring.setProgress((float) left / (float) Math.max(span, left));
             } };
             r.run();
