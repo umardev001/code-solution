@@ -9,7 +9,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context c, Intent intent) {
         Store.Reminder r = Store.reminder(c, intent.getIntExtra("id", -1));
         if (r == null || !r.enabled) return;
-        Notifier.show(c, r.id, r.title, r.message, r.water);
-        Scheduler.schedule(c, r);   // chain the next one
+        if (!Store.inQuietHours(c)) Notifier.show(c, r.id, r.title, r.message, r.water, r);
+        Scheduler.schedule(c, r);   // chain the next one (quiet hours skip the notification)
     }
 }

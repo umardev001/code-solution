@@ -5,7 +5,7 @@ ANDROID_NS = 'http://schemas.android.com/apk/res/android'
 RES = {'label': 0x01010001, 'icon': 0x01010002, 'name': 0x01010003, 'theme': 0x01010000,
        'exported': 0x01010010, 'versionCode': 0x0101021b, 'versionName': 0x0101021c,
        'minSdkVersion': 0x0101020c, 'targetSdkVersion': 0x01010270, 'allowBackup': 0x01010280,
-       'enabled': 0x0101000e, 'roundIcon': 0x0101052c}
+       'enabled': 0x0101000e, 'screenOrientation': 0x0101001e, 'roundIcon': 0x0101052c}
 
 STR, REF, INT, BOOL = 0x03, 0x01, 0x10, 0x12
 

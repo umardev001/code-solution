@@ -26,12 +26,13 @@ public final class Store {
         public int endMin;
         public boolean enabled;
         public boolean water;     // notification gets a "+1 glass" button
+        public String tone = ""; // custom sound uri; empty = app default
 
         JSONObject toJson() throws JSONException {
             JSONObject o = new JSONObject();
             o.put("id", id); o.put("title", title); o.put("message", message);
             o.put("interval", intervalMin); o.put("start", startMin); o.put("end", endMin);
-            o.put("enabled", enabled); o.put("water", water);
+            o.put("enabled", enabled); o.put("water", water); o.put("tone", tone == null ? "" : tone);
             return o;
         }
 
@@ -39,7 +40,7 @@ public final class Store {
             Reminder r = new Reminder();
             r.id = o.optInt("id"); r.title = o.optString("title"); r.message = o.optString("message");
             r.intervalMin = o.optInt("interval"); r.startMin = o.optInt("start"); r.endMin = o.optInt("end");
-            r.enabled = o.optBoolean("enabled"); r.water = o.optBoolean("water");
+            r.enabled = o.optBoolean("enabled"); r.water = o.optBoolean("water"); r.tone = o.optString("tone", "");
             return r;
         }
 
@@ -62,6 +63,8 @@ public final class Store {
         int h12 = h % 12 == 0 ? 12 : h % 12;
         return h12 + ":" + (m < 10 ? "0" : "") + m + (h < 12 ? " AM" : " PM");
     }
+
+    public static SharedPreferences prefs(Context c) { return sp(c); }
 
     private static SharedPreferences sp(Context c) { return c.getApplicationContext().getSharedPreferences(PREFS, Context.MODE_PRIVATE); }
 
@@ -175,5 +178,40 @@ public final class Store {
         t.id = System.currentTimeMillis(); t.text = text; t.type = type; t.done = false;
         l.add(0, t);
         saveTasks(c, l);
+    }
+
+    /* -------------------------------------------------------------- settings */
+    public static String tone(Context c) { return sp(c).getString("tone", ""); }
+    public static void setTone(Context c, String uri) { sp(c).edit().putString("tone", uri == null ? "" : uri).apply(); }
+    public static boolean alarmMode(Context c) { return sp(c).getBoolean("alarm_mode", false); }
+    public static void setAlarmMode(Context c, boolean v) { sp(c).edit().putBoolean("alarm_mode", v).apply(); }
+    public static boolean vibrate(Context c) { return sp(c).getBoolean("vibrate", true); }
+    public static void setVibrate(Context c, boolean v) { sp(c).edit().putBoolean("vibrate", v).apply(); }
+    public static int snoozeMin(Context c) { return sp(c).getInt("snooze_min", 10); }
+    public static void setSnoozeMin(Context c, int m) { sp(c).edit().putInt("snooze_min", m).apply(); }
+    public static boolean quietOn(Context c) { return sp(c).getBoolean("quiet_on", false); }
+    public static void setQuietOn(Context c, boolean v) { sp(c).edit().putBoolean("quiet_on", v).apply(); }
+    public static int quietStart(Context c) { return sp(c).getInt("quiet_start", 22 * 60); }
+    public static int quietEnd(Context c) { return sp(c).getInt("quiet_end", 7 * 60); }
+    public static void setQuiet(Context c, int start, int end) { sp(c).edit().putInt("quiet_start", start).putInt("quiet_end", end).apply(); }
+    public static int autoLockSec(Context c) { return sp(c).getInt("auto_lock", 60); }
+    public static void setAutoLockSec(Context c, int s) { sp(c).edit().putInt("auto_lock", s).apply(); }
+
+    /** True when "now" falls inside the quiet-hours window (which may wrap past midnight). */
+    public static boolean inQuietHours(Context c) {
+        if (!quietOn(c)) return false;
+        java.util.Calendar k = java.util.Calendar.getInstance();
+        int now = k.get(java.util.Calendar.HOUR_OF_DAY) * 60 + k.get(java.util.Calendar.MINUTE);
+        int a = quietStart(c), b = quietEnd(c);
+        return a <= b ? (now >= a && now < b) : (now >= a || now < b);
+    }
+
+    /** Wipe everything (forgot-PIN reset). */
+    public static void clearAll(Context c) { sp(c).edit().clear().apply(); }
+
+    /** Put the six starter reminders back (keeps tasks and settings). */
+    public static void resetReminders(Context c) {
+        sp(c).edit().putBoolean("seeded", false).putString("reminders", "[]").apply();
+        seedIfNeeded(c);
     }
 }

@@ -29,16 +29,18 @@ def manifest(icon_res=None):
     def receiver(name, exported, actions=()):
         ch = [Node('intent-filter', [], [Node('action', [a('name', STR, x)]) for x in actions])] if actions else []
         return Node('receiver', [a('name', STR, name), a('exported', BOOL, exported)], ch)
-    app_attrs = [a('label', STR, 'Daily Boost'), a('allowBackup', BOOL, True)]
+    app_attrs = [a('label', STR, 'Daily Boost'), a('allowBackup', BOOL, True), a('theme', REF, 0x0103006c)]
     if icon_res:
         app_attrs.append(a('icon', REF, icon_res))
-    activity = Node('activity', [a('name', STR, '.MainActivity'), a('exported', BOOL, True), a('label', STR, 'Daily Boost')], [
+    login = Node('activity', [a('name', STR, '.LoginActivity'), a('exported', BOOL, True), a('label', STR, 'Daily Boost'),
+                              a('screenOrientation', INT, 1)], [
         Node('intent-filter', [], [Node('action', [a('name', STR, 'android.intent.action.MAIN')]),
                                    Node('category', [a('name', STR, 'android.intent.category.LAUNCHER')])])])
-    app = Node('application', app_attrs, [activity,
+    main = Node('activity', [a('name', STR, '.MainActivity'), a('exported', BOOL, False), a('label', STR, 'Daily Boost')])
+    app = Node('application', app_attrs, [login, main,
         receiver('.AlarmReceiver', False), receiver('.ActionReceiver', False), receiver('.SnoozeReceiver', False),
         receiver('.BootReceiver', True, ['android.intent.action.BOOT_COMPLETED', 'android.intent.action.MY_PACKAGE_REPLACED'])])
-    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 1), a('versionName', STR, '1.0')],
+    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 2), a('versionName', STR, '1.1')],
                 [Node('uses-sdk', [a('minSdkVersion', INT, 23), a('targetSdkVersion', INT, 28)])] +
                 [Node('uses-permission', [a('name', STR, p)]) for p in perms] + [app])
     return encode(root)

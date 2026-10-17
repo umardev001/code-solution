@@ -23,10 +23,10 @@ public class ActionReceiver extends BroadcastReceiver {
             AlarmManager am = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
             Intent i = new Intent(c, SnoozeReceiver.class).putExtra("id", id);
             PendingIntent p = PendingIntent.getBroadcast(c, id + 500000, i, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
-            long when = System.currentTimeMillis() + 10 * 60 * 1000L;
+            long when = System.currentTimeMillis() + Store.snoozeMin(c) * 60 * 1000L;
             try { am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, when, p); }
             catch (SecurityException e) { am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, when, p); }
-            Toast.makeText(c, "Snoozed for 10 minutes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "Snoozed for " + Store.snoozeMin(c) + " minutes", Toast.LENGTH_SHORT).show();
         }
     }
 }
