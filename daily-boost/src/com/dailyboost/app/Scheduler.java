@@ -48,18 +48,20 @@ public final class Scheduler {
         AlarmManager am = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
         PendingIntent p = pi(c, r.id, PendingIntent.FLAG_UPDATE_CURRENT);
         am.cancel(p);
-        if (!r.enabled) return;
+        if (!r.enabled) { Notifier.updateCountdown(c); return; }
         long when = nextTrigger(r, System.currentTimeMillis());
         try {
             am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, when, p);
         } catch (SecurityException e) {
             am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, when, p);
         }
+        Notifier.updateCountdown(c);
     }
 
     public static void cancel(Context c, int id) {
         AlarmManager am = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
         am.cancel(pi(c, id, PendingIntent.FLAG_UPDATE_CURRENT));
+        Notifier.updateCountdown(c);
     }
 
     public static void scheduleAll(Context c) {

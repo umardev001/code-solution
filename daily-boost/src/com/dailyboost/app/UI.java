@@ -25,14 +25,21 @@ import android.widget.TextView;
  * ellipsized, long text wraps, dialogs scroll and are width-capped.
  */
 public final class UI {
-    public static final int GREEN = Color.parseColor("#1B8A5A");
-    public static final int GREEN_DARK = Color.parseColor("#0F5C3B");
-    public static final int BG = Color.parseColor("#F3F7F5");
-    public static final int INK = Color.parseColor("#17302A");
-    public static final int MUTED = Color.parseColor("#5F7A70");
-    public static final int AMBER = Color.parseColor("#D98E1F");
-    public static final int RED = Color.parseColor("#C94A3A");
-    public static final int FIELD = Color.parseColor("#EEF3F0");
+    public static final int GREEN = Color.parseColor("#0E9F7E");
+    public static final int GREEN_DARK = Color.parseColor("#0B5F4E");
+    public static final int BG = Color.parseColor("#F3F6FB");
+    public static final int INK = Color.parseColor("#0F172A");
+    public static final int MUTED = Color.parseColor("#64748B");
+    public static final int AMBER = Color.parseColor("#E8890C");
+    public static final int RED = Color.parseColor("#E5484D");
+    public static final int FIELD = Color.parseColor("#EEF2F7");
+    public static final int BLUE = Color.parseColor("#3B82F6");
+    public static final int VIOLET = Color.parseColor("#8B5CF6");
+    public static final int ROSE = Color.parseColor("#F43F5E");
+    public static final int TEAL = Color.parseColor("#14B8A6");
+
+    /** Exposed for UI snapshot tests. */
+    public static View lastDialogRoot;
 
     private UI() { }
 
@@ -81,13 +88,13 @@ public final class UI {
         TextView v = new TextView(c);
         v.setText(t);
         v.setTextColor(fg);
-        v.setTextSize(15);
+        v.setTextSize(14.5f);
         v.setTypeface(Typeface.DEFAULT_BOLD);
         v.setGravity(Gravity.CENTER);
         v.setSingleLine(true);
         v.setEllipsize(TextUtils.TruncateAt.END);
         v.setMinHeight(dp(c, 46));
-        v.setPadding(dp(c, 16), dp(c, 10), dp(c, 16), dp(c, 10));
+        v.setPadding(dp(c, 10), dp(c, 10), dp(c, 10), dp(c, 10));
         v.setBackground(pressable(c, bg, 24));
         v.setClickable(true);
         v.setFocusable(true);
@@ -99,6 +106,7 @@ public final class UI {
         TextView v = label(c, t, 15, color, true);
         v.setGravity(Gravity.CENTER);
         v.setSingleLine(true);
+        v.setEllipsize(TextUtils.TruncateAt.END);
         v.setMinHeight(dp(c, 44));
         v.setPadding(dp(c, 14), dp(c, 8), dp(c, 14), dp(c, 8));
         v.setClickable(true);
@@ -109,11 +117,11 @@ public final class UI {
     public static LinearLayout card(Context c) {
         LinearLayout l = new LinearLayout(c);
         l.setOrientation(LinearLayout.VERTICAL);
-        l.setBackground(round(c, Color.WHITE, 16));
-        l.setElevation(dp(c, 2));
-        l.setPadding(dp(c, 16), dp(c, 14), dp(c, 16), dp(c, 14));
+        l.setBackground(round(c, Color.WHITE, 24));
+        l.setElevation(dp(c, 3));
+        l.setPadding(dp(c, 18), dp(c, 16), dp(c, 18), dp(c, 16));
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.setMargins(dp(c, 14), dp(c, 7), dp(c, 14), dp(c, 7));
+        lp.setMargins(dp(c, 16), dp(c, 8), dp(c, 16), dp(c, 8));
         l.setLayoutParams(lp);
         return l;
     }
@@ -173,7 +181,7 @@ public final class UI {
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
         LinearLayout root = new LinearLayout(c);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setBackground(round(c, Color.WHITE, 22));
+        root.setBackground(round(c, Color.WHITE, 28));
         root.setPadding(dp(c, 20), dp(c, 20), dp(c, 14), dp(c, 10));
 
         TextView t = label(c, title, 20, INK, true);
@@ -182,6 +190,7 @@ public final class UI {
 
         CappedScroll sc = new CappedScroll(c);
         sc.setFillViewport(false);
+        sc.setVerticalScrollBarEnabled(false);
         sc.setPadding(0, 0, dp(c, 6), 0);
         sc.addView(body, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         root.addView(sc, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -208,6 +217,7 @@ public final class UI {
         }
         root.addView(row, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
+        lastDialogRoot = root;
         d.setContentView(root);
         Window w = d.getWindow();
         if (w != null) {
@@ -224,5 +234,49 @@ public final class UI {
         TextView m = label(c, msg, 15, INK, false);
         m.setLineSpacing(0, 1.15f);
         return dialog(c, title, m, pos, onPos, neg, null, null);
+    }
+
+    /** Soft diagonal gradient with rounded corners. */
+    public static GradientDrawable gradient(Context c, int from, int to, int radiusDp) {
+        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{from, to});
+        g.setCornerRadius(dp(c, radiusDp));
+        return g;
+    }
+
+    public static int alpha(int color, int a) { return Color.argb(a, Color.red(color), Color.green(color), Color.blue(color)); }
+
+    /** Rounded-square tinted chip holding an emoji. */
+    public static TextView iconChip(Context c, String emoji, int tint, int sizeDp) {
+        TextView v = new TextView(c);
+        v.setText(emoji);
+        v.setTextSize(sizeDp * 0.42f);
+        v.setGravity(Gravity.CENTER);
+        v.setIncludeFontPadding(false);
+        v.setBackground(round(c, alpha(tint, 38), 16));
+        v.setLayoutParams(new LinearLayout.LayoutParams(dp(c, sizeDp), dp(c, sizeDp)));
+        return v;
+    }
+
+    /** First emoji-looking character group in a title, or a fallback. */
+    public static String emojiOf(String title, String fallback) {
+        if (title == null) return fallback;
+        for (int i = 0; i < title.length(); ) {
+            int cp = title.codePointAt(i);
+            if (cp >= 0x2190) return new String(Character.toChars(cp));
+            i += Character.charCount(cp);
+        }
+        return fallback;
+    }
+
+    /** Title without its trailing emoji. */
+    public static String plainTitle(String title) {
+        if (title == null) return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < title.length(); ) {
+            int cp = title.codePointAt(i);
+            if (cp < 0x2190) sb.appendCodePoint(cp);
+            i += Character.charCount(cp);
+        }
+        return sb.toString().trim();
     }
 }

@@ -194,6 +194,8 @@ public final class Store {
     public static int quietStart(Context c) { return sp(c).getInt("quiet_start", 22 * 60); }
     public static int quietEnd(Context c) { return sp(c).getInt("quiet_end", 7 * 60); }
     public static void setQuiet(Context c, int start, int end) { sp(c).edit().putInt("quiet_start", start).putInt("quiet_end", end).apply(); }
+    public static boolean countdownNotif(Context c) { return sp(c).getBoolean("countdown_notif", false); }
+    public static void setCountdownNotif(Context c, boolean v) { sp(c).edit().putBoolean("countdown_notif", v).apply(); }
     public static int autoLockSec(Context c) { return sp(c).getInt("auto_lock", 60); }
     public static void setAutoLockSec(Context c, int s) { sp(c).edit().putInt("auto_lock", s).apply(); }
 

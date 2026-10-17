@@ -1,4 +1,4 @@
-# Daily Boost (Android app) – v1.1
+# Daily Boost (Android app) – v1.2
 
 Daily routine helper: hourly water / 5-minute walk reminders, project & task list, "search later" items, water counter.
 

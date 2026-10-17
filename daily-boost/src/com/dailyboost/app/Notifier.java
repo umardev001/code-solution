@@ -138,4 +138,37 @@ public final class Notifier {
     public static void stopPreview() {
         try { if (preview != null) preview.stop(); } catch (Exception ignored) { }
     }
+
+    /* --------------------------------------------------- live countdown (status bar) */
+    private static final int COUNTDOWN_ID = 77777;
+    private static final String COUNTDOWN_CH = "countdown";
+
+    /** Ongoing, silent notification that counts down to the next reminder. */
+    public static void updateCountdown(Context c) {
+        NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE);
+        Store.Reminder r = Store.countdownNotif(c) ? Scheduler.nextUp(c) : null;
+        if (r == null) { nm.cancel(COUNTDOWN_ID); return; }
+        long when = Scheduler.nextTrigger(r, System.currentTimeMillis());
+        if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(COUNTDOWN_CH) == null) {
+            NotificationChannel ch = new NotificationChannel(COUNTDOWN_CH, "Next reminder countdown", NotificationManager.IMPORTANCE_LOW);
+            ch.setSound(null, null);
+            ch.enableVibration(false);
+            nm.createNotificationChannel(ch);
+        }
+        Notification.Builder b = Build.VERSION.SDK_INT >= 26 ? new Notification.Builder(c, COUNTDOWN_CH) : new Notification.Builder(c);
+        PendingIntent open = PendingIntent.getActivity(c, 1, new Intent(c, MainActivity.class), PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+        b.setSmallIcon(android.R.drawable.ic_popup_reminder)
+                .setContentTitle("Next: " + UI.plainTitle(r.title))
+                .setContentIntent(open)
+                .setOngoing(true)
+                .setOnlyAlertOnce(true)
+                .setShowWhen(true)
+                .setWhen(when);
+        if (Build.VERSION.SDK_INT >= 24) {
+            b.setUsesChronometer(true).setChronometerCountDown(true).setContentText("starts in");
+        } else {
+            b.setContentText("at " + new java.text.SimpleDateFormat("h:mm a", java.util.Locale.getDefault()).format(new java.util.Date(when)));
+        }
+        nm.notify(COUNTDOWN_ID, b.build());
+    }
 }

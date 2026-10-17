@@ -397,9 +397,9 @@ public class LoginActivity extends Activity {
                 float x = (k[0] + 0.06f * (float) Math.sin(t * k[3] + k[4])) * w;
                 float y = (k[1] + 0.05f * (float) Math.cos(t * k[3] * 0.8f + k[4])) * h;
                 float r = k[2] * Math.min(w, h) * (1f + 0.06f * (float) Math.sin(t * 2 + k[4]));
-                p.setColor(Color.argb(34, 255, 255, 255));
+                p.setColor(Color.argb(24, 255, 255, 255));
                 c.drawCircle(x, y, r, p);
-                p.setColor(Color.argb(20, 255, 255, 255));
+                p.setColor(Color.argb(14, 255, 255, 255));
                 c.drawCircle(x, y, r * 0.62f, p);
             }
         }
