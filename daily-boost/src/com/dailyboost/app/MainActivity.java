@@ -3,6 +3,7 @@ package com.dailyboost.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -19,6 +20,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -27,6 +29,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -85,7 +88,7 @@ public class MainActivity extends Activity {
             b.setAllCaps(false);
             b.setTextSize(14);
             b.setBackground(null);
-            b.setOnClickListener(v -> showTab(idx));
+            b.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { showTab(idx); } });
             tabButtons[i] = b;
             bar.addView(b, new LinearLayout.LayoutParams(0, dp(56), 1f));
         }
@@ -210,9 +213,9 @@ public class MainActivity extends Activity {
         Button minus = pill("− 1", MUTED);
         Button plus = pill("+ 1 glass", GREEN);
         Button goalBtn = pill("Goal: " + goal, AMBER);
-        minus.setOnClickListener(v -> { Store.setWater(this, Store.water(this) - 1); buildToday(); });
-        plus.setOnClickListener(v -> { Store.setWater(this, Store.water(this) + 1); buildToday(); });
-        goalBtn.setOnClickListener(v -> askNumber("Daily water goal (glasses)", goal, n -> { Store.setWaterGoal(this, n); buildToday(); }));
+        minus.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { Store.setWater(MainActivity.this, Store.water(MainActivity.this) - 1); buildToday(); } });
+        plus.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { Store.setWater(MainActivity.this, Store.water(MainActivity.this) + 1); buildToday(); } });
+        goalBtn.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { askNumber("Daily water goal (glasses)", goal, new IntCb() { @Override public void run(int n) { Store.setWaterGoal(MainActivity.this, n); buildToday(); } }); } });
         row.addView(minus, new LinearLayout.LayoutParams(0, dp(44), 1f));
         row.addView(plus, new LinearLayout.LayoutParams(0, dp(44), 2f));
         row.addView(goalBtn, new LinearLayout.LayoutParams(0, dp(44), 1.4f));
@@ -231,7 +234,7 @@ public class MainActivity extends Activity {
             cb.setText(("project".equals(t.type) ? "💻 " : "search".equals(t.type) ? "🔍 " : "") + t.text);
             cb.setTextColor(INK);
             cb.setTextSize(15);
-            cb.setOnCheckedChangeListener((b, c) -> { if (c) { setDone(t.id, true); buildToday(); } });
+            cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { @Override public void onCheckedChanged(CompoundButton b, boolean on) { if (on) { setDone(t.id, true); buildToday(); } } });
             tasks.addView(cb);
         }
         if (shown == 0) tasks.addView(text("All clear! Add tasks in the Tasks tab.", 15, INK, false));
@@ -260,9 +263,9 @@ public class MainActivity extends Activity {
         e.setInputType(InputType.TYPE_CLASS_NUMBER);
         e.setText(String.valueOf(current));
         new AlertDialog.Builder(this).setTitle(title).setView(e)
-                .setPositiveButton("Save", (d, w) -> {
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() { @Override public void onClick(DialogInterface d, int w) {
                     try { cb.run(Integer.parseInt(e.getText().toString().trim())); } catch (NumberFormatException ex) { toast("Enter a number"); }
-                }).setNegativeButton("Cancel", null).show();
+                } }).setNegativeButton("Cancel", null).show();
     }
 
     /* ----------------------------------------------------------- Reminders */
@@ -273,8 +276,8 @@ public class MainActivity extends Activity {
         actions.setPadding(dp(14), dp(10), dp(14), dp(2));
         Button add = pill("+ New", GREEN);
         Button test = pill("Test notification", AMBER);
-        add.setOnClickListener(v -> editReminder(null));
-        test.setOnClickListener(v -> { Notifier.show(this, 99999, "Daily Boost 👋", "Notifications are working. Pani pee lo!", true); });
+        add.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { editReminder(null); } });
+        test.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { Notifier.show(MainActivity.this, 99999, "Daily Boost \uD83D\uDC4B", "Notifications are working. Pani pee lo!", true); } });
         actions.addView(add, new LinearLayout.LayoutParams(0, dp(44), 1f));
         actions.addView(test, new LinearLayout.LayoutParams(0, dp(44), 1.6f));
         ((LinearLayout.LayoutParams) add.getLayoutParams()).setMargins(0, 0, dp(8), 0);
@@ -291,10 +294,10 @@ public class MainActivity extends Activity {
             row.addView(info, new LinearLayout.LayoutParams(0, -2, 1f));
             Switch sw = new Switch(this);
             sw.setChecked(r.enabled);
-            sw.setOnCheckedChangeListener((b, on) -> { r.enabled = on; Store.upsert(this, r); Scheduler.schedule(this, r); });
+            sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { @Override public void onCheckedChanged(CompoundButton b, boolean on) { r.enabled = on; Store.upsert(MainActivity.this, r); Scheduler.schedule(MainActivity.this, r); } });
             row.addView(sw);
             c.addView(row);
-            c.setOnClickListener(v -> editReminder(r));
+            c.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { editReminder(r); } });
             col.addView(c);
         }
     }
@@ -316,8 +319,8 @@ public class MainActivity extends Activity {
         interval.setText(String.valueOf(r.intervalMin));
         final Button start = pill("Start: " + Store.fmt(r.startMin), GREEN);
         final Button end = pill("End: " + Store.fmt(r.endMin), GREEN);
-        start.setOnClickListener(v -> new TimePickerDialog(this, (tp, h, m) -> { r.startMin = h * 60 + m; start.setText("Start: " + Store.fmt(r.startMin)); }, r.startMin / 60, r.startMin % 60, false).show());
-        end.setOnClickListener(v -> new TimePickerDialog(this, (tp, h, m) -> { r.endMin = h * 60 + m; end.setText("End: " + Store.fmt(r.endMin)); }, r.endMin / 60, r.endMin % 60, false).show());
+        start.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() { @Override public void onTimeSet(TimePicker tp, int h, int m) { r.startMin = h * 60 + m; start.setText("Start: " + Store.fmt(r.startMin)); } }, r.startMin / 60, r.startMin % 60, false).show(); } });
+        end.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() { @Override public void onTimeSet(TimePicker tp, int h, int m) { r.endMin = h * 60 + m; end.setText("End: " + Store.fmt(r.endMin)); } }, r.endMin / 60, r.endMin % 60, false).show(); } });
         final CheckBox water = new CheckBox(this);
         water.setText("Water reminder (adds a \"+1 glass\" button)");
         water.setChecked(r.water);
@@ -333,7 +336,7 @@ public class MainActivity extends Activity {
         sv.addView(f);
 
         AlertDialog.Builder b = new AlertDialog.Builder(this).setTitle(existing == null ? "New reminder" : "Edit reminder").setView(sv)
-                .setPositiveButton("Save", (d, w) -> {
+                .setPositiveButton("Save", new DialogInterface.OnClickListener() { @Override public void onClick(DialogInterface d, int w) {
                     String t = title.getText().toString().trim();
                     if (t.isEmpty()) { toast("Please enter a title"); return; }
                     r.title = t;
@@ -342,13 +345,13 @@ public class MainActivity extends Activity {
                     if (r.endMin < r.startMin) r.endMin = r.startMin;
                     r.water = water.isChecked();
                     r.enabled = true;
-                    Store.upsert(this, r);
-                    Scheduler.schedule(this, r);
+                    Store.upsert(MainActivity.this, r);
+                    Scheduler.schedule(MainActivity.this, r);
                     buildReminders();
-                })
+                } })
                 .setNegativeButton("Cancel", null);
         if (existing != null) {
-            b.setNeutralButton("Delete", (d, w) -> { Scheduler.cancel(this, r.id); Store.delete(this, r.id); buildReminders(); });
+            b.setNeutralButton("Delete", new DialogInterface.OnClickListener() { @Override public void onClick(DialogInterface d, int w) { Scheduler.cancel(MainActivity.this, r.id); Store.delete(MainActivity.this, r.id); buildReminders(); } });
         }
         b.show();
     }
@@ -370,12 +373,12 @@ public class MainActivity extends Activity {
         row.addView(type, new LinearLayout.LayoutParams(0, dp(44), 1f));
         row.addView(addBtn, new LinearLayout.LayoutParams(0, dp(44), 1f));
         add.addView(row);
-        addBtn.setOnClickListener(v -> {
+        addBtn.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) {
             String t = input.getText().toString().trim();
             if (t.isEmpty()) { toast("Type something first"); return; }
-            Store.addTask(this, t, type.getSelectedItem().toString().toLowerCase(Locale.US));
+            Store.addTask(MainActivity.this, t, type.getSelectedItem().toString().toLowerCase(Locale.US));
             buildTasks();
-        });
+        } });
         col.addView(add);
 
         List<Store.Task> list = Store.tasks(this);
@@ -391,24 +394,24 @@ public class MainActivity extends Activity {
             cb.setTextSize(15);
             cb.setTextColor(t.done ? MUTED : INK);
             if (t.done) cb.setPaintFlags(cb.getPaintFlags() | android.graphics.Paint.STRIKE_THRU_TEXT_FLAG);
-            cb.setOnCheckedChangeListener((b, on) -> { setDone(t.id, on); buildTasks(); });
+            cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { @Override public void onCheckedChanged(CompoundButton b, boolean on) { setDone(t.id, on); buildTasks(); } });
             r.addView(cb, new LinearLayout.LayoutParams(0, -2, 1f));
             if ("search".equals(t.type)) {
                 Button go = pill("Search", AMBER);
-                go.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=" + Uri.encode(t.text)))));
+                go.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=" + Uri.encode(t.text)))); } });
                 r.addView(go, new LinearLayout.LayoutParams(-2, dp(38)));
             }
             c.addView(r);
-            c.setOnLongClickListener(v -> {
-                new AlertDialog.Builder(this).setTitle("Delete this item?").setMessage(t.text)
-                        .setPositiveButton("Delete", (d, w) -> {
-                            List<Store.Task> l = Store.tasks(this);
+            c.setOnLongClickListener(new View.OnLongClickListener() { @Override public boolean onLongClick(View v) {
+                new AlertDialog.Builder(MainActivity.this).setTitle("Delete this item?").setMessage(t.text)
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() { @Override public void onClick(DialogInterface d, int w) {
+                            List<Store.Task> l = Store.tasks(MainActivity.this);
                             for (int i = l.size() - 1; i >= 0; i--) if (l.get(i).id == t.id) l.remove(i);
-                            Store.saveTasks(this, l);
+                            Store.saveTasks(MainActivity.this, l);
                             buildTasks();
-                        }).setNegativeButton("Cancel", null).show();
+                        } }).setNegativeButton("Cancel", null).show();
                 return true;
-            });
+            } });
             col.addView(c);
         }
         if (list.isEmpty()) {
@@ -418,12 +421,12 @@ public class MainActivity extends Activity {
         }
         if (anyDone) {
             Button clear = pill("Clear completed", MUTED);
-            clear.setOnClickListener(v -> {
-                List<Store.Task> l = Store.tasks(this);
+            clear.setOnClickListener(new View.OnClickListener() { @Override public void onClick(View v) {
+                List<Store.Task> l = Store.tasks(MainActivity.this);
                 for (int i = l.size() - 1; i >= 0; i--) if (l.get(i).done) l.remove(i);
-                Store.saveTasks(this, l);
+                Store.saveTasks(MainActivity.this, l);
                 buildTasks();
-            });
+            } });
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, dp(44));
             lp.setMargins(dp(14), dp(10), dp(14), 0);
             col.addView(clear, lp);

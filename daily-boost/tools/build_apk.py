@@ -39,7 +39,7 @@ def manifest(icon_res=None):
         receiver('.AlarmReceiver', False), receiver('.ActionReceiver', False), receiver('.SnoozeReceiver', False),
         receiver('.BootReceiver', True, ['android.intent.action.BOOT_COMPLETED', 'android.intent.action.MY_PACKAGE_REPLACED'])])
     root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 1), a('versionName', STR, '1.0')],
-                [Node('uses-sdk', [a('minSdkVersion', INT, 26), a('targetSdkVersion', INT, 28)])] +
+                [Node('uses-sdk', [a('minSdkVersion', INT, 23), a('targetSdkVersion', INT, 28)])] +
                 [Node('uses-permission', [a('name', STR, p)]) for p in perms] + [app])
     return encode(root)
 
@@ -50,7 +50,7 @@ def main():
     os.makedirs(cls); os.makedirs(out)
     srcs = glob.glob(os.path.join(ROOT, 'src/**/*.java'), recursive=True)
     run(['javac', '--release', '8', '-Xlint:-options', '-cp', LIBS + '/android-all.jar', '-d', cls] + srcs)
-    run(['java', '-cp', LIBS + '/dx.jar', 'com.android.dx.command.Main', '--dex', '--min-sdk-version=26',
+    run(['java', '-cp', LIBS + '/dx.jar', 'com.android.dx.command.Main', '--dex', '--min-sdk-version=23',
          '--output=' + out + '/classes.dex', cls])
     unsigned = os.path.join(WORK, 'unsigned.apk')
     with zipfile.ZipFile(unsigned, 'w', zipfile.ZIP_DEFLATED) as z:
