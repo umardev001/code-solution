@@ -31,6 +31,21 @@ public final class Calc {
         return (v < 0 ? "-" : "") + "Rs " + s;
     }
 
+    /** Short form for tight spaces: Rs 12.5 L (lakh), Rs 1.2 Cr (crore). */
+    public static String compact(long v) {
+        long a = Math.abs(v);
+        String sign = v < 0 ? "-" : "";
+        if (a < 100000L) return money(v);
+        if (a < 10000000L) return sign + "Rs " + trim(a / 100000.0) + " L";
+        return sign + "Rs " + trim(a / 10000000.0) + " Cr";
+    }
+
+    private static String trim(double d) {
+        String s = String.format(java.util.Locale.ENGLISH, "%.2f", d);
+        if (s.indexOf('.') >= 0) { s = s.replaceAll("0+$", ""); if (s.endsWith(".")) s = s.substring(0, s.length() - 1); }
+        return s;
+    }
+
     /** Digits-only parse; returns -1 when empty / invalid / too large. */
     public static long parseAmount(CharSequence t) {
         if (t == null) return -1;

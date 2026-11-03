@@ -1,7 +1,8 @@
-# Sadqa Tracker (Android app) – v1.0
+# Sadqa Tracker (Android app) – v1.1 (premium dark redesign)
 
 Freelancing revenue ↔ sadqa tracker. Default: **Rs 5,000 sadqa for every Rs 1,00,000** earned (editable in ⋮ menu).
 
+- Design: night-sky login (twinkling stars, turning Islamic star pattern, crescent, glass keypad, golden burst on unlock); dashboard with gauge ring, 6-month chart, month pills and floating action buttons.
 - Add revenue (amount, date, client/note) → sadqa due is calculated automatically.
 - Give sadqa (amount, date, to whom) → it is subtracted from the pending total; every entry stays on record (edit / delete).
 - Dashboard: all-time pending (or "advance" if you gave extra), progress bar, per-month Revenue / Due / Given / Pending, month-by-month history.

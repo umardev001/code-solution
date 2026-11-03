@@ -18,10 +18,13 @@ import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -39,6 +42,9 @@ import java.util.Locale;
 public class MainActivity extends Activity {
     private static final int REQ_PIN = 7;
     private static long lastShownPending = Long.MIN_VALUE;
+    private static float lastFrac = 0f;
+    private boolean firstRender = true;
+    private View actionBar;
 
     private ScrollView sv;
     private LinearLayout col;
@@ -52,12 +58,12 @@ public class MainActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(Color.parseColor("#06281F"));
-            getWindow().setNavigationBarColor(UI.BG);
+            getWindow().setStatusBarColor(Color.parseColor("#020C08"));
+            getWindow().setNavigationBarColor(Color.parseColor("#06170F"));
         }
         selYm = Store.nowYm();
         FrameLayout root = new FrameLayout(this);
-        root.setBackgroundColor(UI.BG);
+        root.setBackground(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{Color.parseColor("#020C08"), Color.parseColor("#06251B"), Color.parseColor("#07170F")}));
         root.setFilterTouchesWhenObscured(true);
         sv = new ScrollView(this);
         sv.setVerticalScrollBarEnabled(false);
@@ -66,7 +72,42 @@ public class MainActivity extends Activity {
         col.setOrientation(LinearLayout.VERTICAL);
         sv.addView(col, new ViewGroup.LayoutParams(-1, -2));
         root.addView(sv, new FrameLayout.LayoutParams(-1, -1));
+        // floating action bar
+        LinearLayout bar = new LinearLayout(this);
+        bar.setPadding(dp(16), dp(26), dp(16), dp(14));
+        bar.setBackground(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{Color.TRANSPARENT, Color.parseColor("#E606170F")}));
+        TextView rev = fab("＋  Add Revenue", Color.parseColor("#34E0A1"), Color.parseColor("#0E9F6E"), Color.WHITE);
+        rev.setOnClickListener(new UI.Tap() { @Override public void tap() { entryDialog(true, null); } });
+        TextView give = fab("🤲  Give Sadqa", Color.parseColor("#FBE7A1"), Color.parseColor("#E0A526"), Color.parseColor("#3A2A00"));
+        give.setOnClickListener(new UI.Tap() { @Override public void tap() { entryDialog(false, null); } });
+        bar.addView(rev, UI.lp(this, 0, -2, 0, 0, 6, 0));
+        bar.addView(give, UI.lp(this, 0, -2, 6, 0, 0, 0));
+        ((LinearLayout.LayoutParams) rev.getLayoutParams()).weight = 1f;
+        ((LinearLayout.LayoutParams) give.getLayoutParams()).weight = 1f;
+        FrameLayout.LayoutParams bl = new FrameLayout.LayoutParams(-1, -2);
+        bl.gravity = Gravity.BOTTOM;
+        root.addView(bar, bl);
+        actionBar = bar;
         setContentView(root);
+    }
+
+    private TextView fab(String text, int c1, int c2, int fg) {
+        TextView v = new TextView(this);
+        v.setText(text);
+        v.setTextColor(fg);
+        v.setTextSize(15);
+        v.setTypeface(Typeface.DEFAULT_BOLD);
+        v.setGravity(Gravity.CENTER);
+        v.setSingleLine(true);
+        v.setEllipsize(TextUtils.TruncateAt.END);
+        v.setMinHeight(dp(54));
+        v.setPadding(dp(10), dp(12), dp(10), dp(12));
+        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{c1, c2});
+        g.setCornerRadius(dp(28));
+        v.setBackground(g);
+        v.setElevation(dp(8));
+        v.setClickable(true);
+        return v;
     }
 
     @Override protected void onResume() {
@@ -90,23 +131,82 @@ public class MainActivity extends Activity {
     private void render() {
         final int keepY = sv.getScrollY();
         col.removeAllViews();
+        addHeader();
         addHero();
-        addActions();
-        addMonthBar();
-        addMonthStats();
+        addMonthPills();
+        addMonthCard();
+        addTrend();
         addEntries();
         addHistory();
         TextView foot = UI.label(this, "🔒  Encrypted on this phone • no internet access", 12, UI.MUTED, false);
         foot.setGravity(Gravity.CENTER);
-        foot.setPadding(dp(16), dp(22), dp(16), dp(26));
+        foot.setPadding(dp(16), dp(22), dp(16), dp(120));      // room for the floating buttons
         col.addView(foot, new LinearLayout.LayoutParams(-1, -2));
+        if (firstRender) {
+            firstRender = false;
+            for (int i = 0; i < col.getChildCount(); i++) {
+                View v = col.getChildAt(i);
+                v.setAlpha(0f);
+                v.setTranslationY(dp(28));
+                v.animate().alpha(1f).translationY(0).setStartDelay(70L * Math.min(i, 6)).setDuration(480).start();
+            }
+            actionBar.setTranslationY(dp(120));
+            actionBar.animate().translationY(0).setStartDelay(500).setDuration(520).setInterpolator(new OvershootInterpolator(1.3f)).start();
+        }
         sv.post(new Runnable() { @Override public void run() { sv.scrollTo(0, keepY); } });
     }
 
     private TextView section(String t) {
         TextView v = UI.label(this, t, 13, UI.MUTED, true);
-        v.setPadding(dp(22), dp(18), dp(22), dp(2));
+        v.setLetterSpacing(0.08f);
+        v.setPadding(dp(22), dp(22), dp(22), dp(2));
         return v;
+    }
+
+    private TextView roundBtn(String glyph, UI.Tap tap) {
+        TextView v = UI.label(this, glyph, 18, Color.WHITE, true);
+        v.setGravity(Gravity.CENTER);
+        GradientDrawable g = new GradientDrawable();
+        g.setShape(GradientDrawable.OVAL);
+        g.setColor(Color.parseColor("#1AFFFFFF"));
+        g.setStroke(Math.max(1, dp(1)), Color.parseColor("#2EFFFFFF"));
+        v.setBackground(g);
+        v.setIncludeFontPadding(false);
+        v.setClickable(true);
+        v.setOnClickListener(tap);
+        return v;
+    }
+
+    private void addHeader() {
+        LinearLayout top = new LinearLayout(this);
+        top.setGravity(Gravity.CENTER_VERTICAL);
+        top.setPadding(dp(20), dp(16), dp(16), dp(4));
+        LinearLayout names = new LinearLayout(this);
+        names.setOrientation(LinearLayout.VERTICAL);
+        names.addView(UI.label(this, "Assalamu Alaikum 🤲", 13, UI.GOLD, false));
+        TextView t = UI.label(this, "Sadqa Tracker", 25, Color.WHITE, true);
+        t.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        names.addView(t);
+        top.addView(names, new LinearLayout.LayoutParams(0, -2, 1f));
+        top.addView(roundBtn("🔒", new UI.Tap() { @Override public void tap() { Lock.lockNow(); goLogin(); } }), UI.lp(this, dp(42), dp(42), 0, 0, 10, 0));
+        top.addView(roundBtn("⋮", new UI.Tap() { @Override public void tap() { showMenu(); } }), UI.lp(this, dp(42), dp(42), 0, 0, 0, 0));
+        col.addView(top, new LinearLayout.LayoutParams(-1, -2));
+    }
+
+    private LinearLayout chip(String label, long value, int color) {
+        LinearLayout c = new LinearLayout(this);
+        c.setOrientation(LinearLayout.VERTICAL);
+        c.setGravity(Gravity.CENTER_HORIZONTAL);
+        c.setBackground(UI.round(this, UI.alpha(color, 30), 16));
+        c.setPadding(dp(6), dp(10), dp(6), dp(10));
+        TextView l = UI.label(this, label, 10.5f, color, true);
+        l.setLetterSpacing(0.06f);
+        c.addView(l);
+        TextView v = UI.label(this, Calc.compact(value), 14, Color.WHITE, true);
+        v.setSingleLine(true);
+        v.setEllipsize(TextUtils.TruncateAt.END);
+        c.addView(v, UI.lp(this, -2, -2, 0, 2, 0, 0));
+        return c;
     }
 
     private void addHero() {
@@ -114,157 +214,184 @@ public class MainActivity extends Activity {
         final long pending = all[1] - all[2];
         LinearLayout h = new LinearLayout(this);
         h.setOrientation(LinearLayout.VERTICAL);
+        h.setGravity(Gravity.CENTER_HORIZONTAL);
         GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
-                new int[]{Color.parseColor("#06281F"), Color.parseColor("#0B5D45"), Color.parseColor("#138A63")});
-        float r = dp(32);
-        g.setCornerRadii(new float[]{0, 0, 0, 0, r, r, r, r});
+                new int[]{Color.parseColor("#1B4B3B"), Color.parseColor("#0E2B22"), Color.parseColor("#0A1E18")});
+        g.setCornerRadius(dp(30));
+        g.setStroke(Math.max(1, dp(1)), Color.parseColor("#33F2C25B"));
         h.setBackground(g);
-        h.setPadding(dp(22), dp(14), dp(22), dp(56));
+        h.setPadding(dp(16), dp(18), dp(16), dp(16));
+        LinearLayout.LayoutParams hl = new LinearLayout.LayoutParams(-1, -2);
+        hl.setMargins(dp(16), dp(14), dp(16), dp(6));
 
-        LinearLayout top = new LinearLayout(this);
-        top.setGravity(Gravity.CENTER_VERTICAL);
-        LinearLayout names = new LinearLayout(this);
-        names.setOrientation(LinearLayout.VERTICAL);
-        names.addView(UI.label(this, "Sadqa Tracker", 19, Color.WHITE, true));
-        names.addView(UI.label(this, "Allah qabool farmaye 🤲", 12, Color.parseColor("#BDE8D4"), false));
-        top.addView(names, new LinearLayout.LayoutParams(0, -2, 1f));
-        TextView menu = UI.label(this, "⋮", 26, Color.WHITE, true);
-        menu.setGravity(Gravity.CENTER);
-        menu.setPadding(dp(14), dp(4), dp(6), dp(4));
-        menu.setClickable(true);
-        menu.setOnClickListener(new UI.Tap() { @Override public void tap() { showMenu(); } });
-        top.addView(menu);
-        h.addView(top);
+        int sw = getResources().getDisplayMetrics().widthPixels;
+        int size = Math.min(dp(230), (int) (sw * 0.62f));
+        Widgets.DonutView donut = new Widgets.DonutView(this);
+        int pct = all[1] > 0 ? (int) Math.min(999, all[2] * 100 / all[1]) : 0;
+        float frac = all[1] > 0 ? Math.min(1f, (float) all[2] / all[1]) : 0f;
+        donut.set(frac, pct, all[1] > 0 ? "of sadqa given" : "no sadqa due yet", lastFrac);
+        lastFrac = frac;
+        h.addView(donut, new LinearLayout.LayoutParams(size, size));
 
-        TextView cap = UI.label(this, pending >= 0 ? "SADQA PENDING  •  ALL TIME" : "ADVANCE GIVEN  •  EXTRA", 12, UI.GOLD, true);
-        cap.setLetterSpacing(0.08f);
-        h.addView(cap, UI.lp(this, -2, -2, 0, 22, 0, 0));
+        TextView cap = UI.label(this, pending >= 0 ? "SADQA PENDING" : "ADVANCE GIVEN", 12, UI.GOLD, true);
+        cap.setLetterSpacing(0.14f);
+        h.addView(cap, UI.lp(this, -2, -2, 0, 4, 0, 0));
 
-        final TextView amt = UI.label(this, Calc.money(Math.abs(pending)), 38, Color.WHITE, true);
+        final TextView amt = UI.label(this, Calc.money(Math.abs(pending)), 36, Color.WHITE, true);
+        amt.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         amt.setSingleLine(true);
         amt.setEllipsize(TextUtils.TruncateAt.END);
+        amt.setGravity(Gravity.CENTER);
         h.addView(amt, UI.lp(this, -1, -2, 0, 2, 0, 0));
         if (lastShownPending != pending) {
             final long from = lastShownPending == Long.MIN_VALUE ? 0 : Math.abs(lastShownPending);
             final long to = Math.abs(pending);
             ValueAnimator a = ValueAnimator.ofFloat(0f, 1f);
-            a.setDuration(700);
+            a.setDuration(900);
+            a.setInterpolator(new DecelerateInterpolator(1.5f));
             a.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override public void onAnimationUpdate(ValueAnimator v) {
-                    float f = (Float) v.getAnimatedValue();
-                    amt.setText(Calc.money(from + Math.round((to - from) * (double) f)));
+                    amt.setText(Calc.money(from + Math.round((to - from) * (double) (Float) v.getAnimatedValue())));
                 }
             });
             a.start();
             lastShownPending = pending;
         }
+        TextView sub = UI.label(this, pending > 0 ? "Allah ke naam par dena baaki hai" : (pending == 0 ? "Alhamdulillah – sab ada ho gaya ✓" : "Aap ne zyada de diya – Allah qabool kare"), 12.5f, UI.MUTED, false);
+        sub.setGravity(Gravity.CENTER);
+        h.addView(sub, UI.lp(this, -1, -2, 0, 2, 0, 0));
 
-        Widgets.BarView bar = new Widgets.BarView(this);
-        h.addView(bar, UI.lp(this, -1, dp(8), 0, 14, 0, 0));
-        bar.setProgress(all[1] > 0 ? (float) all[2] / all[1] : 0f);
-        int pct = all[1] > 0 ? (int) Math.min(999, all[2] * 100 / all[1]) : 0;
-        TextView sub = UI.label(this, "Given " + Calc.money(all[2]) + " of " + Calc.money(all[1]) + " due  •  " + pct + "%", 12, Color.parseColor("#BDE8D4"), false);
-        h.addView(sub, UI.lp(this, -2, -2, 0, 8, 0, 0));
-        TextView sub2 = UI.label(this, "Total revenue tracked: " + Calc.money(all[0]), 12, Color.parseColor("#8FCFB3"), false);
-        h.addView(sub2, UI.lp(this, -2, -2, 0, 2, 0, 0));
-        col.addView(h, new LinearLayout.LayoutParams(-1, -2));
+        LinearLayout chips = new LinearLayout(this);
+        chips.addView(chip("REVENUE", all[0], UI.GREEN), UI.lp(this, 0, -2, 0, 0, 4, 0));
+        chips.addView(chip("DUE", all[1], UI.VIOLET), UI.lp(this, 0, -2, 4, 0, 4, 0));
+        chips.addView(chip("GIVEN", all[2], UI.GOLD), UI.lp(this, 0, -2, 4, 0, 0, 0));
+        for (int i = 0; i < 3; i++) ((LinearLayout.LayoutParams) chips.getChildAt(i).getLayoutParams()).weight = 1f;
+        h.addView(chips, UI.lp(this, -1, -2, 0, 16, 0, 0));
+        col.addView(h, hl);
     }
 
-    private void addActions() {
+    private void addMonthPills() {
+        List<Integer> ms = new ArrayList<Integer>(Store.months());
+        Collections.reverse(ms);                          // oldest -> newest
+        final HorizontalScrollView hs = new HorizontalScrollView(this);
+        hs.setHorizontalScrollBarEnabled(false);
         LinearLayout row = new LinearLayout(this);
-        row.setPadding(dp(14), 0, dp(14), 0);
-        TextView rev = UI.button(this, "＋  Add Revenue", UI.GREEN, Color.WHITE);
-        rev.setElevation(dp(6));
-        rev.setOnClickListener(new UI.Tap() { @Override public void tap() { entryDialog(true, null); } });
-        TextView give = UI.button(this, "🤲  Give Sadqa", UI.GOLD, Color.parseColor("#3A2A00"));
-        give.setElevation(dp(6));
-        give.setOnClickListener(new UI.Tap() { @Override public void tap() { entryDialog(false, null); } });
-        row.addView(rev, UI.lp(this, 0, -2, 4, 0, 4, 0));
-        ((LinearLayout.LayoutParams) rev.getLayoutParams()).weight = 1f;
-        row.addView(give, UI.lp(this, 0, -2, 4, 0, 4, 0));
-        ((LinearLayout.LayoutParams) give.getLayoutParams()).weight = 1f;
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
-        lp.topMargin = -dp(26);
-        col.addView(row, lp);
-    }
-
-    private void addMonthBar() {
-        List<Integer> ms = Store.months();           // newest first
-        final int max = ms.get(0), min = ms.get(ms.size() - 1);
-        LinearLayout bar = new LinearLayout(this);
-        bar.setGravity(Gravity.CENTER_VERTICAL);
-        bar.setPadding(dp(14), dp(18), dp(14), 0);
-        bar.addView(arrow("‹", selYm > min, -1));
-        TextView t = UI.label(this, Store.monthName(selYm), 18, UI.INK, true);
-        t.setGravity(Gravity.CENTER);
-        bar.addView(t, new LinearLayout.LayoutParams(0, -2, 1f));
-        bar.addView(arrow("›", selYm < max, 1));
-        col.addView(bar, new LinearLayout.LayoutParams(-1, -2));
-    }
-
-    private View arrow(String s, boolean on, final int dir) {
-        TextView v = UI.label(this, s, 28, on ? UI.INK : Color.parseColor("#C5CDD8"), true);
-        v.setGravity(Gravity.CENTER);
-        v.setMinWidth(dp(48));
-        v.setMinHeight(dp(44));
-        v.setIncludeFontPadding(false);
-        if (on) {
-            v.setClickable(true);
-            v.setOnClickListener(new UI.Tap() {
-                @Override public void tap() {
-                    selYm += dir;
-                    render();
-                }
-            });
+        row.setPadding(dp(16), dp(14), dp(16), dp(2));
+        View selected = null;
+        for (final int ym : ms) {
+            boolean on = ym == selYm;
+            TextView p = UI.label(this, Store.shortMonth(ym), 13.5f, on ? Color.parseColor("#3A2A00") : UI.MUTED, true);
+            p.setGravity(Gravity.CENTER);
+            p.setPadding(dp(16), dp(9), dp(16), dp(9));
+            if (on) {
+                GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#FBE7A1"), Color.parseColor("#E9B949")});
+                g.setCornerRadius(dp(22));
+                p.setBackground(g);
+                selected = p;
+            } else p.setBackground(UI.glass(this, 22));
+            p.setClickable(true);
+            p.setOnClickListener(new UI.Tap() { @Override public void tap() { selYm = ym; render(); } });
+            row.addView(p, UI.lp(this, -2, -2, 0, 0, 8, 0));
         }
-        return v;
+        hs.addView(row);
+        col.addView(hs, new LinearLayout.LayoutParams(-1, -2));
+        final View sel = selected;
+        hs.post(new Runnable() { @Override public void run() { if (sel != null) hs.scrollTo(Math.max(0, sel.getLeft() - dp(80)), 0); } });
     }
 
-    private void addMonthStats() {
+    private void addMonthCard() {
         long[] m = Store.sums(selYm);
         long pend = m[1] - m[2];
         LinearLayout card = UI.card(this);
+        LinearLayout head = new LinearLayout(this);
+        head.setGravity(Gravity.CENTER_VERTICAL);
+        TextView t = UI.label(this, Store.monthName(selYm), 19, Color.WHITE, true);
+        t.setSingleLine(true);
+        t.setEllipsize(TextUtils.TruncateAt.END);
+        head.addView(t, new LinearLayout.LayoutParams(0, -2, 1f));
+        boolean none = m[1] == 0 && m[2] == 0;
+        int bc = none ? UI.MUTED : (pend > 0 ? UI.AMBER : UI.GREEN);
+        TextView badge = UI.label(this, none ? "No activity" : (pend > 0 ? "Pending " + Calc.compact(pend) : (pend == 0 ? "Settled ✓" : "Advance " + Calc.compact(-pend))), 12, bc, true);
+        badge.setBackground(UI.round(this, UI.alpha(bc, 36), 14));
+        badge.setPadding(dp(12), dp(5), dp(12), dp(5));
+        badge.setSingleLine(true);
+        head.addView(badge);
+        card.addView(head);
+
         LinearLayout r1 = new LinearLayout(this);
-        r1.addView(tile("REVENUE", Calc.money(m[0]), UI.BLUE), UI.lp(this, 0, -2, 0, 0, 6, 0));
-        r1.addView(tile("SADQA DUE", Calc.money(m[1]), UI.VIOLET), UI.lp(this, 0, -2, 6, 0, 0, 0));
-        ((LinearLayout.LayoutParams) r1.getChildAt(0).getLayoutParams()).weight = 1f;
-        ((LinearLayout.LayoutParams) r1.getChildAt(1).getLayoutParams()).weight = 1f;
+        r1.addView(tile("REVENUE", Calc.money(m[0]), UI.GREEN), UI.lp(this, 0, -2, 0, 0, 5, 0));
+        r1.addView(tile("SADQA DUE", Calc.money(m[1]), UI.VIOLET), UI.lp(this, 0, -2, 5, 0, 0, 0));
         LinearLayout r2 = new LinearLayout(this);
-        r2.addView(tile("GIVEN", Calc.money(m[2]), UI.GREEN), UI.lp(this, 0, -2, 0, 0, 6, 0));
-        r2.addView(tile(pend >= 0 ? "PENDING" : "ADVANCE", Calc.money(Math.abs(pend)), pend > 0 ? UI.AMBER : UI.TEAL), UI.lp(this, 0, -2, 6, 0, 0, 0));
-        ((LinearLayout.LayoutParams) r2.getChildAt(0).getLayoutParams()).weight = 1f;
-        ((LinearLayout.LayoutParams) r2.getChildAt(1).getLayoutParams()).weight = 1f;
-        card.addView(r1);
-        card.addView(r2, UI.lp(this, -1, -2, 0, 12, 0, 0));
+        r2.addView(tile("GIVEN", Calc.money(m[2]), UI.GOLD), UI.lp(this, 0, -2, 0, 0, 5, 0));
+        r2.addView(tile(pend >= 0 ? "PENDING" : "ADVANCE", Calc.money(Math.abs(pend)), pend > 0 ? UI.AMBER : UI.TEAL), UI.lp(this, 0, -2, 5, 0, 0, 0));
+        for (int i = 0; i < 2; i++) {
+            ((LinearLayout.LayoutParams) r1.getChildAt(i).getLayoutParams()).weight = 1f;
+            ((LinearLayout.LayoutParams) r2.getChildAt(i).getLayoutParams()).weight = 1f;
+        }
+        card.addView(r1, UI.lp(this, -1, -2, 0, 14, 0, 0));
+        card.addView(r2, UI.lp(this, -1, -2, 0, 10, 0, 0));
         col.addView(card);
     }
 
     private View tile(String label, String value, int color) {
         LinearLayout t = new LinearLayout(this);
         t.setOrientation(LinearLayout.VERTICAL);
-        t.setBackground(UI.round(this, UI.alpha(color, 30), 16));
+        t.setBackground(UI.round(this, UI.alpha(color, 28), 16));
         t.setPadding(dp(14), dp(12), dp(14), dp(12));
         TextView l = UI.label(this, label, 11, color, true);
-        l.setLetterSpacing(0.06f);
+        l.setLetterSpacing(0.08f);
         t.addView(l);
-        TextView v = UI.label(this, value, 17, UI.INK, true);
+        TextView v = UI.label(this, value, 17, Color.WHITE, true);
         v.setSingleLine(true);
         v.setEllipsize(TextUtils.TruncateAt.END);
         t.addView(v, UI.lp(this, -2, -2, 0, 3, 0, 0));
         return t;
     }
 
+    private void addTrend() {
+        LinearLayout card = UI.card(this);
+        LinearLayout head = new LinearLayout(this);
+        head.setGravity(Gravity.CENTER_VERTICAL);
+        head.addView(UI.label(this, "Last 6 months", 16, Color.WHITE, true), new LinearLayout.LayoutParams(0, -2, 1f));
+        head.addView(legend("Revenue", UI.GREEN), UI.lp(this, -2, -2, 0, 0, 12, 0));
+        head.addView(legend("Given", UI.GOLD));
+        card.addView(head);
+        int n = 6;
+        String[] labels = new String[n];
+        long[] rev = new long[n], giv = new long[n];
+        for (int i = 0; i < n; i++) {
+            int ym = selYm - (n - 1 - i);
+            long[] m = Store.sums(ym);
+            labels[i] = Store.shortMonth(ym).substring(0, 3);
+            rev[i] = m[0]; giv[i] = m[2];
+        }
+        Widgets.BarsView bars = new Widgets.BarsView(this);
+        bars.set(labels, rev, giv, n - 1);
+        card.addView(bars, UI.lp(this, -1, dp(160), 0, 10, 0, 0));
+        col.addView(card);
+    }
+
+    private View legend(String t, int color) {
+        TextView v = UI.label(this, "●  " + t, 12, color, true);
+        return v;
+    }
+
     private void addEntries() {
-        col.addView(section("ENTRIES THIS MONTH"));
         List<Store.Entry> all = new ArrayList<Store.Entry>();
         for (Store.Entry e : Store.income) if (Store.ym(e.ts) == selYm) all.add(e);
         for (Store.Entry e : Store.paid) if (Store.ym(e.ts) == selYm) all.add(e);
         Collections.sort(all, Store.NEWEST_FIRST);
+        col.addView(section("ENTRIES  •  " + all.size()));
         if (all.isEmpty()) {
             LinearLayout c = UI.card(this);
-            TextView t = UI.label(this, "Nothing recorded for " + Store.monthName(selYm) + " yet.\nTap “Add Revenue” when a payment arrives – sadqa is calculated automatically.", 14, UI.MUTED, false);
-            t.setLineSpacing(0, 1.15f);
-            c.addView(t);
+            c.setGravity(Gravity.CENTER_HORIZONTAL);
+            TextView em = UI.label(this, "🌙", 34, Color.WHITE, false);
+            em.setGravity(Gravity.CENTER);
+            c.addView(em);
+            TextView t = UI.label(this, "Nothing recorded for " + Store.monthName(selYm) + " yet.\nTap “Add Revenue” when a payment arrives – sadqa is calculated for you.", 14, UI.MUTED, false);
+            t.setGravity(Gravity.CENTER);
+            t.setLineSpacing(0, 1.2f);
+            c.addView(t, UI.lp(this, -2, -2, 0, 6, 0, 0));
             col.addView(c);
             return;
         }
@@ -274,20 +401,20 @@ public class MainActivity extends Activity {
     private View entryRow(final Store.Entry e, final boolean isIncome) {
         LinearLayout row = new LinearLayout(this);
         row.setGravity(Gravity.CENTER_VERTICAL);
-        row.setBackground(UI.round(this, Color.WHITE, 18));
-        row.setElevation(dp(2));
-        row.setPadding(dp(12), dp(10), dp(14), dp(10));
+        row.setBackground(UI.glass(this, 20));
+        row.setPadding(dp(12), dp(11), dp(16), dp(11));
         row.setClickable(true);
         row.setOnClickListener(new UI.Tap() { @Override public void tap() { entryOptions(e, isIncome); } });
         LinearLayout.LayoutParams rl = new LinearLayout.LayoutParams(-1, -2);
         rl.setMargins(dp(16), dp(5), dp(16), dp(5));
 
-        TextView chip = UI.iconChip(this, isIncome ? "💰" : "🤲", isIncome ? UI.GREEN : UI.GOLD, 44);
-        row.addView(chip, new LinearLayout.LayoutParams(dp(44), dp(44)));
+        int tint = isIncome ? UI.GREEN : UI.GOLD;
+        TextView chip = UI.iconChip(this, isIncome ? "💰" : "🤲", tint, 46);
+        row.addView(chip, new LinearLayout.LayoutParams(dp(46), dp(46)));
 
         LinearLayout mid = new LinearLayout(this);
         mid.setOrientation(LinearLayout.VERTICAL);
-        TextView t = UI.label(this, e.note.isEmpty() ? (isIncome ? "Revenue" : "Sadqa given") : e.note, 15, UI.INK, true);
+        TextView t = UI.label(this, e.note.isEmpty() ? (isIncome ? "Revenue" : "Sadqa given") : e.note, 15, Color.WHITE, true);
         t.setSingleLine(true);
         t.setEllipsize(TextUtils.TruncateAt.END);
         mid.addView(t);
@@ -296,10 +423,10 @@ public class MainActivity extends Activity {
         s.setSingleLine(true);
         s.setEllipsize(TextUtils.TruncateAt.END);
         mid.addView(s);
-        row.addView(mid, UI.lp(this, 0, -2, 12, 0, 8, 0));
-        ((LinearLayout.LayoutParams) mid.getLayoutParams()).weight = 1f;
+        row.addView(mid, new LinearLayout.LayoutParams(0, -2, 1f));
+        ((LinearLayout.LayoutParams) mid.getLayoutParams()).setMargins(dp(12), 0, dp(8), 0);
 
-        TextView a = UI.label(this, (isIncome ? "+ " : "– ") + Calc.money(e.amount), 15, isIncome ? UI.GREEN : UI.AMBER, true);
+        TextView a = UI.label(this, (isIncome ? "+ " : "– ") + Calc.money(e.amount), 15, tint, true);
         a.setSingleLine(true);
         row.addView(a);
         row.setLayoutParams(rl);
@@ -316,15 +443,15 @@ public class MainActivity extends Activity {
             long pend = m[1] - m[2];
             LinearLayout row = new LinearLayout(this);
             row.setGravity(Gravity.CENTER_VERTICAL);
-            row.setPadding(dp(12), dp(10), dp(12), dp(10));
-            if (ym == selYm) row.setBackground(UI.round(this, UI.alpha(UI.GREEN, 28), 14));
+            row.setPadding(dp(12), dp(11), dp(12), dp(11));
+            if (ym == selYm) row.setBackground(UI.round(this, UI.alpha(UI.GOLD, 28), 14));
             row.setClickable(true);
             row.setOnClickListener(new UI.Tap() {
                 @Override public void tap() { selYm = ym; render(); sv.post(new Runnable() { @Override public void run() { sv.smoothScrollTo(0, 0); } }); }
             });
             LinearLayout mid = new LinearLayout(this);
             mid.setOrientation(LinearLayout.VERTICAL);
-            mid.addView(UI.label(this, Store.shortMonth(ym), 15, UI.INK, true));
+            mid.addView(UI.label(this, Store.shortMonth(ym), 15, Color.WHITE, true));
             TextView sub = UI.label(this, "Revenue " + Calc.money(m[0]), 12, UI.MUTED, false);
             sub.setSingleLine(true);
             sub.setEllipsize(TextUtils.TruncateAt.END);
@@ -365,7 +492,7 @@ public class MainActivity extends Activity {
         amt.setTypeface(Typeface.DEFAULT_BOLD);
         form.addView(amt);
 
-        final TextView hint = UI.label(this, "", 13, UI.GREEN_DARK, true);
+        final TextView hint = UI.label(this, "", 13, UI.GOLD, true);
         hint.setPadding(dp(2), dp(8), 0, 0);
         form.addView(hint);
         if (isIncome) {
@@ -402,7 +529,7 @@ public class MainActivity extends Activity {
             @Override public void tap() {
                 Calendar c = Calendar.getInstance();
                 c.setTimeInMillis(when[0]);
-                DatePickerDialog dp = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog dp = new DatePickerDialog(MainActivity.this, android.R.style.Theme_DeviceDefault_Dialog_Alert, new DatePickerDialog.OnDateSetListener() {
                     @Override public void onDateSet(DatePicker view, int y, int m, int d) {
                         Calendar n = Calendar.getInstance();
                         n.set(y, m, d, 12, 0, 0);

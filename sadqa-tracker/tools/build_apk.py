@@ -35,7 +35,7 @@ def manifest(icon_res=None):
     main = Node('activity', [a('name', STR, '.MainActivity'), a('exported', BOOL, False), a('label', STR, 'Sadqa Tracker'),
                              a('screenOrientation', INT, 1)])
     app = Node('application', app_attrs, [login, main])
-    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 1), a('versionName', STR, '1.0')],
+    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 2), a('versionName', STR, '1.1')],
                 [Node('uses-sdk', [a('minSdkVersion', INT, 23), a('targetSdkVersion', INT, 28)]), app])
     return encode(root)
 

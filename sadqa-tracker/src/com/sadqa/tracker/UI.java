@@ -25,19 +25,20 @@ import android.widget.TextView;
  * ellipsized, long text wraps, dialogs scroll and are width-capped.
  */
 public final class UI {
-    public static final int GREEN = Color.parseColor("#0E9F6E");
+    public static final int GREEN = Color.parseColor("#19C37D");
     public static final int GREEN_DARK = Color.parseColor("#0B5F4E");
-    public static final int GOLD = Color.parseColor("#E9B949");
-    public static final int BG = Color.parseColor("#F3F6FB");
-    public static final int INK = Color.parseColor("#0F172A");
-    public static final int MUTED = Color.parseColor("#64748B");
-    public static final int AMBER = Color.parseColor("#E8890C");
-    public static final int RED = Color.parseColor("#E5484D");
-    public static final int FIELD = Color.parseColor("#EEF2F7");
-    public static final int BLUE = Color.parseColor("#3B82F6");
-    public static final int VIOLET = Color.parseColor("#8B5CF6");
+    public static final int CARD = Color.parseColor("#0F2A22");
+    public static final int GOLD = Color.parseColor("#F2C25B");
+    public static final int BG = Color.parseColor("#06170F");
+    public static final int INK = Color.parseColor("#EEF6F2");
+    public static final int MUTED = Color.parseColor("#8FB0A2");
+    public static final int AMBER = Color.parseColor("#F2A93B");
+    public static final int RED = Color.parseColor("#FF6B6B");
+    public static final int FIELD = Color.parseColor("#143A2F");
+    public static final int BLUE = Color.parseColor("#5AA2FF");
+    public static final int VIOLET = Color.parseColor("#A78BFA");
     public static final int ROSE = Color.parseColor("#F43F5E");
-    public static final int TEAL = Color.parseColor("#14B8A6");
+    public static final int TEAL = Color.parseColor("#2DD4BF");
 
     /** Exposed for UI snapshot tests. */
     public static View lastDialogRoot;
@@ -61,6 +62,15 @@ public final class UI {
         return g;
     }
 
+    /** Dark translucent "glass" panel with a hairline border. */
+    public static GradientDrawable glass(Context c, int radiusDp) {
+        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
+                new int[]{Color.parseColor("#17392E"), Color.parseColor("#0E261E")});
+        g.setCornerRadius(dp(c, radiusDp));
+        g.setStroke(Math.max(1, dp(c, 1)), Color.parseColor("#26FFFFFF"));
+        return g;
+    }
+
     private static int darker(int color) {
         float[] hsv = new float[3];
         Color.colorToHSV(color, hsv);
@@ -75,7 +85,7 @@ public final class UI {
         return s;
     }
 
-    public static TextView label(Context c, String t, int sp, int color, boolean bold) {
+    public static TextView label(Context c, String t, float sp, int color, boolean bold) {
         TextView v = new TextView(c);
         v.setText(t);
         v.setTextSize(sp);
@@ -118,8 +128,7 @@ public final class UI {
     public static LinearLayout card(Context c) {
         LinearLayout l = new LinearLayout(c);
         l.setOrientation(LinearLayout.VERTICAL);
-        l.setBackground(round(c, Color.WHITE, 24));
-        l.setElevation(dp(c, 3));
+        l.setBackground(glass(c, 24));
         l.setPadding(dp(c, 18), dp(c, 16), dp(c, 18), dp(c, 16));
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.setMargins(dp(c, 16), dp(c, 8), dp(c, 16), dp(c, 8));
@@ -134,7 +143,7 @@ public final class UI {
         e.setInputType(type);
         e.setTextSize(16);
         e.setTextColor(INK);
-        e.setHintTextColor(Color.parseColor("#93A89F"));
+        e.setHintTextColor(Color.parseColor("#6F8F82"));
         e.setBackground(round(c, FIELD, 12));
         e.setPadding(dp(c, 14), dp(c, 12), dp(c, 14), dp(c, 12));
         e.setMinHeight(dp(c, 48));
@@ -182,7 +191,7 @@ public final class UI {
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
         LinearLayout root = new LinearLayout(c);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setBackground(round(c, Color.WHITE, 28));
+        root.setBackground(glass(c, 28));
         root.setPadding(dp(c, 20), dp(c, 20), dp(c, 14), dp(c, 10));
 
         TextView t = label(c, title, 20, INK, true);

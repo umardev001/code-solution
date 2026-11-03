@@ -11,6 +11,11 @@ public class CalcTest {
         eq(Calc.money(1234567), "Rs 12,34,567");
         eq(Calc.money(123456789), "Rs 12,34,56,789");
         eq(Calc.money(-5000), "-Rs 5,000");
+        eq(Calc.compact(99999), "Rs 99,999");
+        eq(Calc.compact(100000), "Rs 1 L");
+        eq(Calc.compact(1250000), "Rs 12.5 L");
+        eq(Calc.compact(10000000), "Rs 1 Cr");
+        eq(Calc.compact(123456789), "Rs 12.35 Cr");
         eq(Calc.due(100000, 5000), 5000L);
         eq(Calc.due(250000, 5000), 12500L);
         eq(Calc.due(1, 5000), 0L);

@@ -10,9 +10,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
@@ -20,8 +22,8 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Vibrator;
 import android.view.Gravity;
+import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,7 +45,7 @@ public class LoginActivity extends Activity {
     public static final String MODE_CHANGE = "change";
     private static final int LEN = Lock.PIN_LEN;
     private static final int STEP_VERIFY = 0, STEP_NEW = 1, STEP_CONFIRM = 2;
-    private static final int SUB = Color.parseColor("#BDE8D4");
+    private static final int SUB = Color.parseColor("#A9D8C3");
 
     private boolean changeMode;
     private boolean broken;           // vault could not be opened
@@ -53,7 +55,7 @@ public class LoginActivity extends Activity {
     private final StringBuilder entry = new StringBuilder();
     private boolean busy = false;
 
-    private AuroraView aurora;
+    private SkyView sky;
     private LogoView logo;
     private TextView title, subtitle;
     private LinearLayout dotsRow;
@@ -69,8 +71,8 @@ public class LoginActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);   // no screenshots / recents preview
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(Color.parseColor("#06281F"));
-            getWindow().setNavigationBarColor(Color.parseColor("#138A63"));
+            getWindow().setStatusBarColor(Color.parseColor("#020C08"));
+            getWindow().setNavigationBarColor(Color.parseColor("#0B4A37"));
         }
         changeMode = MODE_CHANGE.equals(getIntent().getStringExtra(EXTRA_MODE)) && Lock.isUnlocked();
         if (!changeMode && Lock.isUnlocked()) { openApp(false); return; }
@@ -107,8 +109,8 @@ public class LoginActivity extends Activity {
     private void build() {
         FrameLayout root = new FrameLayout(this);
         root.setFilterTouchesWhenObscured(true);          // ignore taps through overlay windows
-        aurora = new AuroraView(this);
-        root.addView(aurora, new FrameLayout.LayoutParams(-1, -1));
+        sky = new SkyView(this);
+        root.addView(sky, new FrameLayout.LayoutParams(-1, -1));
 
         ScrollView sv = new ScrollView(this);
         sv.setFillViewport(true);
@@ -121,7 +123,7 @@ public class LoginActivity extends Activity {
 
         int sh = getResources().getDisplayMetrics().heightPixels;
         int key = Math.max(dp(50), Math.min(dp(72), (sh - dp(540)) / 4));
-        int logoSize = sh < dp(620) ? dp(70) : dp(96);
+        int logoSize = sh < dp(620) ? dp(84) : dp(116);
 
         View top = new View(this);
         col.addView(top, new LinearLayout.LayoutParams(1, 0, 1f));
@@ -129,22 +131,24 @@ public class LoginActivity extends Activity {
         logo = new LogoView(this);
         col.addView(logo, new LinearLayout.LayoutParams(logoSize, logoSize));
 
-        title = UI.label(this, "", 27, Color.WHITE, true);
+        title = UI.label(this, "", 30, Color.WHITE, false);
+        title.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+        title.setLetterSpacing(0.02f);
         title.setGravity(Gravity.CENTER);
         col.addView(title, UI.lp(this, -2, -2, 0, 14, 0, 0));
-        subtitle = UI.label(this, "", 14, SUB, false);
+        subtitle = UI.label(this, "", 14.5f, SUB, false);
         subtitle.setGravity(Gravity.CENTER);
-        col.addView(subtitle, UI.lp(this, -2, -2, 0, 4, 0, 0));
+        col.addView(subtitle, UI.lp(this, -2, -2, 0, 6, 0, 0));
 
         dotsRow = new LinearLayout(this);
         dotsRow.setGravity(Gravity.CENTER);
         for (int i = 0; i < LEN; i++) {
             View d = new View(this);
             dots[i] = d;
-            dotsRow.addView(d, UI.lp(this, dp(14), dp(14), 7, 0, 7, 0));
+            dotsRow.addView(d, UI.lp(this, dp(15), dp(15), 8, 0, 8, 0));
         }
         col.addView(dotsRow, UI.lp(this, -2, -2, 0, 22, 0, 20));
-        paintDots(0, Color.WHITE);
+        paintDots(0, UI.GOLD);
 
         LinearLayout pad = new LinearLayout(this);
         pad.setOrientation(LinearLayout.VERTICAL);
@@ -186,13 +190,13 @@ public class LoginActivity extends Activity {
         boolean back = label.equals("⌫");
         t.setText(label);
         t.setTextColor(Color.WHITE);
-        t.setTextSize(back ? 24 : 28);
+        t.setTextSize(back ? 22 : 30);
         t.setGravity(Gravity.CENTER);
-        t.setTypeface(Typeface.DEFAULT, Typeface.NORMAL);
+        t.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
         t.setIncludeFontPadding(false);
         StateListDrawable sl = new StateListDrawable();
-        GradientDrawable pressed = new GradientDrawable(); pressed.setShape(GradientDrawable.OVAL); pressed.setColor(Color.parseColor("#66F5D78A"));
-        GradientDrawable normal = new GradientDrawable(); normal.setShape(GradientDrawable.OVAL); normal.setColor(back ? Color.parseColor("#14FFFFFF") : Color.parseColor("#2AFFFFFF"));
+        GradientDrawable pressed = new GradientDrawable(); pressed.setShape(GradientDrawable.OVAL); pressed.setColor(Color.parseColor("#55F2C25B")); pressed.setStroke(dp(1), Color.parseColor("#AAF2C25B"));
+        GradientDrawable normal = new GradientDrawable(); normal.setShape(GradientDrawable.OVAL); normal.setColor(back ? Color.parseColor("#0CFFFFFF") : Color.parseColor("#17FFFFFF")); normal.setStroke(dp(1), Color.parseColor("#26FFFFFF"));
         sl.addState(new int[]{android.R.attr.state_pressed}, pressed);
         sl.addState(new int[]{}, normal);
         t.setBackground(sl);
@@ -203,7 +207,7 @@ public class LoginActivity extends Activity {
         });
         t.setOnTouchListener(new View.OnTouchListener() {
             @Override public boolean onTouch(View v, MotionEvent e) {
-                if (e.getAction() == MotionEvent.ACTION_DOWN) v.animate().scaleX(0.9f).scaleY(0.9f).setDuration(70).start();
+                if (e.getAction() == MotionEvent.ACTION_DOWN) { v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP); v.animate().scaleX(0.9f).scaleY(0.9f).setDuration(70).start(); }
                 else if (e.getAction() == MotionEvent.ACTION_UP || e.getAction() == MotionEvent.ACTION_CANCEL)
                     v.animate().scaleX(1f).scaleY(1f).setDuration(120).setInterpolator(new OvershootInterpolator(3f)).start();
                 return false;
@@ -219,11 +223,11 @@ public class LoginActivity extends Activity {
             title.setText("Vault unavailable");
             subtitle.setText("Your data could not be unlocked on this phone");
         } else if (step == STEP_VERIFY) {
-            title.setText(changeMode ? "Enter current PIN" : "Welcome back");
-            subtitle.setText(changeMode ? "Confirm it’s you first" : "Enter your " + LEN + "-digit PIN");
+            title.setText(changeMode ? "Enter current PIN" : "Assalamu Alaikum");
+            subtitle.setText(changeMode ? "Confirm it’s you first" : "Enter your PIN to continue");
         } else if (step == STEP_NEW) {
-            title.setText(Lock.hasPin() || changeMode ? "Create new PIN" : "Create your PIN");
-            subtitle.setText("Choose " + LEN + " digits only you know");
+            title.setText(Lock.hasPin() || changeMode ? "Create new PIN" : "Welcome 🤲");
+            subtitle.setText((Lock.hasPin() || changeMode ? "Choose " + LEN + " digits only you know" : "Create a " + LEN + "-digit PIN to protect your records"));
         } else {
             title.setText("Confirm your PIN");
             subtitle.setText("Enter the same " + LEN + " digits again");
@@ -233,7 +237,7 @@ public class LoginActivity extends Activity {
     private void press(String d) {
         if (busy || broken || entry.length() >= LEN) return;
         entry.append(d);
-        paintDots(entry.length(), Color.WHITE);
+        paintDots(entry.length(), UI.GOLD);
         pop(dots[entry.length() - 1]);
         if (entry.length() == LEN) {
             busy = true;
@@ -244,7 +248,7 @@ public class LoginActivity extends Activity {
     private void backspace() {
         if (busy || entry.length() == 0) return;
         entry.setLength(entry.length() - 1);
-        paintDots(entry.length(), Color.WHITE);
+        paintDots(entry.length(), UI.GOLD);
     }
 
     private void submit() {
@@ -283,14 +287,14 @@ public class LoginActivity extends Activity {
         }
     }
 
-    private void resetEntry() { entry.setLength(0); paintDots(0, Color.WHITE); busy = false; }
+    private void resetEntry() { entry.setLength(0); paintDots(0, UI.GOLD); busy = false; }
 
     private void wrong(String msg, final boolean lockout) {
         afterMsg = lockout ? null : msg;
         paintDots(LEN, Color.parseColor("#FF8A80"));
         subtitle.setText(msg);
         subtitle.setTextColor(Color.parseColor("#FFB4AB"));
-        try { ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(70); } catch (Exception ignored) { }
+        dotsRow.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
         ObjectAnimator a = ObjectAnimator.ofFloat(dotsRow, "translationX", 0, -dp(14), dp(14), -dp(10), dp(10), -dp(5), dp(5), 0);
         a.setDuration(420);
         a.addListener(new AnimatorListenerAdapter() {
@@ -336,13 +340,17 @@ public class LoginActivity extends Activity {
 
     private void successThen(final boolean openMain) {
         busy = true;
-        paintDots(LEN, Color.parseColor("#F5D78A"));
+        paintDots(LEN, Color.parseColor("#FFE9A8"));
         for (int i = 0; i < LEN; i++) pop(dots[i]);
         logo.celebrate();
-        content.animate().alpha(0f).setStartDelay(520).setDuration(280).start();
+        int[] a = new int[2], b = new int[2];
+        logo.getLocationInWindow(a);
+        sky.getLocationInWindow(b);
+        sky.burst(a[0] - b[0] + logo.getWidth() / 2f, a[1] - b[1] + logo.getHeight() / 2f);
+        content.animate().alpha(0f).setStartDelay(700).setDuration(300).start();
         handler.postDelayed(new Runnable() {
             @Override public void run() { if (openMain) openApp(true); else finish(); }
-        }, 820);
+        }, 1050);
     }
 
     private void openApp(boolean animate) {
@@ -382,7 +390,7 @@ public class LoginActivity extends Activity {
             GradientDrawable g = new GradientDrawable();
             g.setShape(GradientDrawable.OVAL);
             if (i < filled) g.setColor(color);
-            else { g.setColor(Color.TRANSPARENT); g.setStroke(dp(2), Color.parseColor("#99FFFFFF")); }
+            else { g.setColor(Color.TRANSPARENT); g.setStroke(dp(2), Color.parseColor("#77FFFFFF")); }
             dots[i].setBackground(g);
         }
     }
@@ -402,62 +410,29 @@ public class LoginActivity extends Activity {
             v.setAlpha(0f);
             v.setTranslationY(dp(34));
             v.animate().alpha(1f).translationY(0).setStartDelay(60L * n++).setDuration(420).setInterpolator(new AccelerateDecelerateInterpolator()).start();
+            if (v instanceof LinearLayout && ((LinearLayout) v).getChildCount() == 4) {      // keypad: keys pop in row by row
+                LinearLayout pad = (LinearLayout) v;
+                for (int r = 0; r < pad.getChildCount(); r++) {
+                    ViewGroup row = (ViewGroup) pad.getChildAt(r);
+                    for (int k = 0; k < row.getChildCount(); k++) {
+                        View key = row.getChildAt(k);
+                        key.setScaleX(0.4f); key.setScaleY(0.4f); key.setAlpha(0f);
+                        key.animate().scaleX(1f).scaleY(1f).alpha(1f).setStartDelay(420 + 70L * r + 25L * k).setDuration(380).setInterpolator(new OvershootInterpolator(2.5f)).start();
+                    }
+                }
+            }
         }
+        logo.setScaleX(0.3f); logo.setScaleY(0.3f);
+        logo.animate().scaleX(1f).scaleY(1f).setStartDelay(0).setDuration(700).setInterpolator(new OvershootInterpolator(2f)).start();
     }
 
     /* ---------------------------------------------------------- custom views */
-    /** Slowly drifting emerald gradient with soft golden bubbles. */
-    static final class AuroraView extends View {
-        private final Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
-        private final Paint bg = new Paint();
-        private float t;
-        private ValueAnimator anim;
-        private final float[][] b = {{0.15f, 0.2f, 0.34f, 0.7f, 0.0f}, {0.85f, 0.15f, 0.26f, 1.1f, 1.7f}, {0.3f, 0.75f, 0.42f, 0.9f, 3.1f},
-                {0.9f, 0.7f, 0.3f, 0.6f, 4.4f}, {0.55f, 0.45f, 0.2f, 1.3f, 2.2f}};
-
-        AuroraView(Context c) { super(c); }
-
-        @Override protected void onSizeChanged(int w, int h, int ow, int oh) {
-            bg.setShader(new LinearGradient(0, 0, w * 0.4f, h, new int[]{Color.parseColor("#06281F"), Color.parseColor("#0B5D45"), Color.parseColor("#138A63")}, new float[]{0f, 0.55f, 1f}, Shader.TileMode.CLAMP));
-        }
-
-        @Override protected void onAttachedToWindow() {
-            super.onAttachedToWindow();
-            anim = ValueAnimator.ofFloat(0f, (float) (Math.PI * 2));
-            anim.setDuration(14000);
-            anim.setInterpolator(new LinearInterpolator());
-            anim.setRepeatCount(ValueAnimator.INFINITE);
-            anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override public void onAnimationUpdate(ValueAnimator a) { t = (Float) a.getAnimatedValue(); invalidate(); }
-            });
-            anim.start();
-        }
-
-        @Override protected void onDetachedFromWindow() { if (anim != null) anim.cancel(); super.onDetachedFromWindow(); }
-
-        @Override protected void onDraw(Canvas c) {
-            int w = getWidth(), h = getHeight();
-            c.drawRect(0, 0, w, h, bg);
-            for (int i = 0; i < b.length; i++) {
-                float[] k = b[i];
-                float x = (k[0] + 0.06f * (float) Math.sin(t * k[3] + k[4])) * w;
-                float y = (k[1] + 0.05f * (float) Math.cos(t * k[3] * 0.8f + k[4])) * h;
-                float r = k[2] * Math.min(w, h) * (1f + 0.06f * (float) Math.sin(t * 2 + k[4]));
-                boolean gold = i % 2 == 1;
-                p.setColor(gold ? Color.argb(22, 245, 215, 138) : Color.argb(22, 255, 255, 255));
-                c.drawCircle(x, y, r, p);
-                p.setColor(gold ? Color.argb(14, 245, 215, 138) : Color.argb(12, 255, 255, 255));
-                c.drawCircle(x, y, r * 0.62f, p);
-            }
-        }
-    }
-
-    /** Golden coin with a heart (sadqa), floating, with sparkles orbiting it. */
+    /** Golden coin with a heart (sadqa): breathing halo, spinning dashed ring, orbiting sparkles. */
     static final class LogoView extends View {
         private final Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
         private final Path heart = new Path();
-        private ValueAnimator pulse;
-        private float phase;
+        private ValueAnimator pulse, spin;
+        private float phase, angle;
         private float boost = 0f;
 
         LogoView(Context c) { super(c); }
@@ -471,40 +446,65 @@ public class LoginActivity extends Activity {
             pulse.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override public void onAnimationUpdate(ValueAnimator a) {
                     phase = (Float) a.getAnimatedValue();
-                    setTranslationY((float) Math.sin(phase) * UI.dp(getContext(), 4));
+                    setTranslationY((float) Math.sin(phase) * UI.dp(getContext(), 5));
                     invalidate();
                 }
             });
             pulse.start();
+            spin = ValueAnimator.ofFloat(0f, 360f);
+            spin.setDuration(18000);
+            spin.setInterpolator(new LinearInterpolator());
+            spin.setRepeatCount(ValueAnimator.INFINITE);
+            spin.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override public void onAnimationUpdate(ValueAnimator a) { angle = (Float) a.getAnimatedValue(); }
+            });
+            spin.start();
         }
 
-        @Override protected void onDetachedFromWindow() { if (pulse != null) pulse.cancel(); super.onDetachedFromWindow(); }
+        @Override protected void onDetachedFromWindow() {
+            if (pulse != null) pulse.cancel();
+            if (spin != null) spin.cancel();
+            super.onDetachedFromWindow();
+        }
 
         void celebrate() {
             ValueAnimator a = ValueAnimator.ofFloat(0f, 1f);
-            a.setDuration(520);
-            a.setInterpolator(new OvershootInterpolator(2.5f));
+            a.setDuration(600);
+            a.setInterpolator(new OvershootInterpolator(2.8f));
             a.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override public void onAnimationUpdate(ValueAnimator v) { boost = (Float) v.getAnimatedValue(); setScaleX(1f + 0.25f * boost); setScaleY(1f + 0.25f * boost); invalidate(); }
+                @Override public void onAnimationUpdate(ValueAnimator v) { boost = (Float) v.getAnimatedValue(); setScaleX(1f + 0.3f * boost); setScaleY(1f + 0.3f * boost); invalidate(); }
             });
             a.start();
         }
 
         @Override protected void onDraw(Canvas c) {
             float w = getWidth(), cx = w / 2f, cy = getHeight() / 2f;
-            float glow = 1f + 0.07f * (float) Math.sin(phase);
+            float breathe = 1f + 0.06f * (float) Math.sin(phase) + 0.25f * boost;
             p.setStyle(Paint.Style.FILL);
+            p.setShader(new RadialGradient(cx, cy, w * 0.62f * breathe, Color.argb(120, 242, 194, 91), Color.argb(0, 242, 194, 91), Shader.TileMode.CLAMP));
+            c.drawCircle(cx, cy, w * 0.62f * breathe, p);
             p.setShader(null);
-            p.setColor(Color.argb(40, 245, 215, 138));
-            c.drawCircle(cx, cy, w * 0.5f * glow, p);
+            // spinning dashed ring
+            p.setStyle(Paint.Style.STROKE);
+            p.setStrokeWidth(w * 0.014f);
+            p.setColor(Color.argb(170, 248, 222, 143));
+            p.setPathEffect(new DashPathEffect(new float[]{w * 0.03f, w * 0.045f}, 0));
+            c.save();
+            c.rotate(angle, cx, cy);
+            c.drawCircle(cx, cy, w * 0.455f, p);
+            c.restore();
+            p.setPathEffect(null);
             // coin
-            p.setShader(new LinearGradient(cx - w * 0.36f, cy - w * 0.36f, cx + w * 0.36f, cy + w * 0.36f, Color.parseColor("#FBE7A1"), Color.parseColor("#E0A526"), Shader.TileMode.CLAMP));
-            c.drawCircle(cx, cy, w * 0.36f, p);
+            p.setStyle(Paint.Style.FILL);
+            p.setShader(new LinearGradient(cx - w * 0.36f, cy - w * 0.36f, cx + w * 0.36f, cy + w * 0.36f, Color.parseColor("#FFF1BE"), Color.parseColor("#D9961E"), Shader.TileMode.CLAMP));
+            c.drawCircle(cx, cy, w * 0.37f, p);
             p.setShader(null);
             p.setStyle(Paint.Style.STROKE);
-            p.setStrokeWidth(w * 0.025f);
-            p.setColor(Color.argb(120, 255, 255, 255));
-            c.drawCircle(cx, cy, w * 0.30f, p);
+            p.setStrokeWidth(w * 0.02f);
+            p.setColor(Color.argb(150, 255, 255, 255));
+            c.drawCircle(cx, cy, w * 0.31f, p);
+            p.setColor(Color.argb(60, 120, 70, 0));
+            c.drawCircle(cx, cy, w * 0.335f, p);
             // heart
             float s = w * 0.17f;
             heart.reset();
@@ -515,12 +515,14 @@ public class LoginActivity extends Activity {
             p.setStyle(Paint.Style.FILL);
             p.setColor(Color.parseColor("#0B5D45"));
             c.drawPath(heart, p);
-            // orbiting sparkles
-            p.setColor(Color.argb(230, 255, 241, 190));
+            p.setColor(Color.argb(90, 255, 255, 255));
+            c.drawCircle(cx - s * 0.55f, cy - s * 0.45f, s * 0.16f, p);
+            // sparkles
+            p.setColor(Color.argb(235, 255, 241, 190));
             for (int i = 0; i < 3; i++) {
-                double a = phase * 1.0 + i * 2.0944;
-                float r = w * 0.47f;
-                float sz = w * (0.028f + 0.012f * (float) Math.sin(phase * 3 + i));
+                double a = phase + i * 2.0944;
+                float r = w * 0.52f;
+                float sz = w * (0.026f + 0.012f * (float) Math.sin(phase * 3 + i));
                 c.drawCircle(cx + r * (float) Math.cos(a), cy + r * 0.92f * (float) Math.sin(a), sz, p);
             }
         }
