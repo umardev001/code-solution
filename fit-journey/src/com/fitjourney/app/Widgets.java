@@ -91,8 +91,9 @@ public final class Widgets {
 
         @Override protected void onDraw(Canvas c) {
             float w = getWidth(), h = getHeight(), cx = w / 2f, cy = h / 2f, s = Math.min(w, h);
-            float t = s * 0.082f, gap = s * 0.022f;
+            float t = s * 0.072f, gap = s * 0.02f;
             float r0 = s / 2f - t / 2f - dp(getContext(), 6);
+            float rIn = r0 - 2 * (t + gap) - t / 2f - dp(getContext(), 5);      // clear radius inside the innermost ring
             for (int i = 0; i < 3; i++) {
                 float r = r0 - i * (t + gap);
                 box.set(cx - r, cy - r, cx + r, cy + r);
@@ -111,8 +112,19 @@ public final class Widgets {
                     c.drawCircle(cx + r * (float) Math.cos(ang), cy + r * (float) Math.sin(ang), t * 0.2f, dot);
                 }
             }
-            c.drawText(top, cx, cy + big.getTextSize() * 0.12f, big);
-            c.drawText(bottom, cx, cy + big.getTextSize() * 0.12f + small.getTextSize() * 1.45f, small);
+            // centre text: sized to the free space inside the rings so it can never touch them
+            float bs = Math.min(sp(getContext(), 40), rIn * 0.8f);
+            big.setTextSize(bs);
+            while (big.measureText(top) > rIn * 1.3f && bs > dp(getContext(), 12)) { bs *= 0.92f; big.setTextSize(bs); }
+            float ss = Math.min(sp(getContext(), 12), rIn * 0.3f);
+            small.setTextSize(ss);
+            float bigH = bs * 0.72f, smallH = ss * 0.72f, space = ss * 0.55f;
+            float blockTop = cy - (bigH + space + smallH) / 2f;
+            float bigBase = blockTop + bigH, smallBase = bigBase + space + smallH;
+            float chord = 2f * (float) Math.sqrt(Math.max(1f, rIn * rIn - (smallBase - cy) * (smallBase - cy))) * 0.92f;
+            while (small.measureText(bottom) > chord && ss > dp(getContext(), 7)) { ss *= 0.92f; small.setTextSize(ss); }
+            c.drawText(top, cx, bigBase, big);
+            c.drawText(bottom, cx, smallBase, small);
         }
     }
 

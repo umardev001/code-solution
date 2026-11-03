@@ -357,7 +357,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         int size = Math.min(dp(250), (int) (sw * 0.68f));
         float[] fr = {frac(d.steps, p.stepGoal), frac(d.water, p.waterGoal), frac(d.workout, p.workoutGoal)};
         Widgets.RingsView rings = new Widgets.RingsView(this);
-        rings.set(fr, Store.hits(d) + "/3", "goals today", lastRings);
+        rings.set(fr, Store.hits(d) + "/3", "goals", lastRings);
         lastRings = fr;
         hero.addView(rings, new LinearLayout.LayoutParams(size, size));
         LinearLayout legend = new LinearLayout(this);
