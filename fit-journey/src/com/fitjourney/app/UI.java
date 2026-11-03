@@ -25,28 +25,28 @@ import android.widget.TextView;
  * ellipsized, long text wraps, dialogs scroll and are width-capped.
  */
 public final class UI {
-    public static final int GREEN = Color.parseColor("#34D399");
+    public static final int GREEN = Color.parseColor("#10B981");
     public static final int GREEN_DARK = Color.parseColor("#0B5F4E");
-    public static final int CARD = Color.parseColor("#141A2E");
-    public static final int GOLD = Color.parseColor("#FFB84D");
-    public static final int BG = Color.parseColor("#0A0E1A");
-    public static final int INK = Color.parseColor("#F4F6FF");
-    public static final int MUTED = Color.parseColor("#8A94B8");
-    public static final int AMBER = Color.parseColor("#FFB84D");
-    public static final int RED = Color.parseColor("#FF6B7F");
-    public static final int FIELD = Color.parseColor("#1C2542");
-    public static final int BLUE = Color.parseColor("#5AA2FF");
-    public static final int VIOLET = Color.parseColor("#B794F6");
-    public static final int ROSE = Color.parseColor("#FF5A7A");
-    public static final int TEAL = Color.parseColor("#22D3EE");
+    public static final int CARD = Color.parseColor("#FFFFFF");
+    public static final int GOLD = Color.parseColor("#F59E0B");
+    public static final int BG = Color.parseColor("#F4F6FF");
+    public static final int INK = Color.parseColor("#1B2140");
+    public static final int MUTED = Color.parseColor("#6B7390");
+    public static final int AMBER = Color.parseColor("#F59E0B");
+    public static final int RED = Color.parseColor("#EF4444");
+    public static final int FIELD = Color.parseColor("#EEF1FB");
+    public static final int BLUE = Color.parseColor("#3B82F6");
+    public static final int VIOLET = Color.parseColor("#8B5CF6");
+    public static final int ROSE = Color.parseColor("#FF4D79");
+    public static final int TEAL = Color.parseColor("#0EA5C9");
 
-    public static final int STEPS = Color.parseColor("#FF5A7A");
-    public static final int WATER = Color.parseColor("#28D7F5");
-    public static final int WEIGHT = Color.parseColor("#B794F6");
-    public static final int SLEEP = Color.parseColor("#7C8CFF");
-    public static final int CAL = Color.parseColor("#FFB84D");
-    public static final int WORK = Color.parseColor("#A3E635");
-    public static final int ACCENT = Color.parseColor("#7C5CFF");
+    public static final int STEPS = Color.parseColor("#FF4D79");
+    public static final int WATER = Color.parseColor("#12B8E6");
+    public static final int WEIGHT = Color.parseColor("#8B5CF6");
+    public static final int SLEEP = Color.parseColor("#6366F1");
+    public static final int CAL = Color.parseColor("#F59E0B");
+    public static final int WORK = Color.parseColor("#6CBF1A");
+    public static final int ACCENT = Color.parseColor("#6D4AFF");
 
     /** Exposed for UI snapshot tests. */
     public static View lastDialogRoot;
@@ -73,9 +73,9 @@ public final class UI {
     /** Dark translucent "glass" panel with a hairline border. */
     public static GradientDrawable glass(Context c, int radiusDp) {
         GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
-                new int[]{Color.parseColor("#1D2542"), Color.parseColor("#131A30")});
+                new int[]{Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF")});
         g.setCornerRadius(dp(c, radiusDp));
-        g.setStroke(Math.max(1, dp(c, 1)), Color.parseColor("#1FFFFFFF"));
+        g.setStroke(Math.max(1, dp(c, 1)), Color.parseColor("#E7EBF7"));
         return g;
     }
 
@@ -137,6 +137,7 @@ public final class UI {
         LinearLayout l = new LinearLayout(c);
         l.setOrientation(LinearLayout.VERTICAL);
         l.setBackground(glass(c, 24));
+        l.setElevation(dp(c, 3));
         l.setPadding(dp(c, 18), dp(c, 16), dp(c, 18), dp(c, 16));
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.setMargins(dp(c, 16), dp(c, 8), dp(c, 16), dp(c, 8));
@@ -151,7 +152,7 @@ public final class UI {
         e.setInputType(type);
         e.setTextSize(16);
         e.setTextColor(INK);
-        e.setHintTextColor(Color.parseColor("#66709A"));
+        e.setHintTextColor(Color.parseColor("#9AA3C0"));
         e.setBackground(round(c, FIELD, 12));
         e.setPadding(dp(c, 14), dp(c, 12), dp(c, 14), dp(c, 12));
         e.setMinHeight(dp(c, 48));

@@ -39,7 +39,7 @@ def manifest(icon_res=None):
         Node('intent-filter', [], [Node('action', [a('name', STR, 'android.intent.action.BOOT_COMPLETED')]),
                                    Node('action', [a('name', STR, 'android.intent.action.MY_PACKAGE_REPLACED')])])])
     app = Node('application', app_attrs, [setup, main, tick, boot])
-    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 1), a('versionName', STR, '1.0')],
+    root = Node('manifest', [('package', STR, PKG), a('versionCode', INT, 2), a('versionName', STR, '1.1')],
                 [Node('uses-sdk', [a('minSdkVersion', INT, 23), a('targetSdkVersion', INT, 28)])] +
                 [Node('uses-permission', [a('name', STR, p)]) for p in perms] + [app])
     return encode(root)

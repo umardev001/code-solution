@@ -29,8 +29,11 @@ public class SetupActivity extends Activity {
         if (Store.hasProfile()) { startActivity(new Intent(this, MainActivity.class)); finish(); return; }
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(Color.parseColor("#080B16"));
-            getWindow().setNavigationBarColor(Color.parseColor("#0C1226"));
+            getWindow().setStatusBarColor(Color.parseColor("#F8F9FF"));
+            getWindow().setNavigationBarColor(Color.parseColor("#EAF0FF"));
+            int f = android.os.Build.VERSION.SDK_INT >= 23 ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0;
+            if (android.os.Build.VERSION.SDK_INT >= 26) f |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+            getWindow().getDecorView().setSystemUiVisibility(f);
         }
         build();
     }
@@ -51,7 +54,7 @@ public class SetupActivity extends Activity {
         rings.set(new float[]{0.82f, 0.64f, 0.46f}, "Fit", "Journey", new float[3]);
         col.addView(rings, new LinearLayout.LayoutParams(dp(170), dp(170)));
 
-        TextView title = UI.label(this, "Let’s start your journey", 28, Color.WHITE, true);
+        TextView title = UI.label(this, "Let’s start your journey", 28, UI.INK, true);
         title.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         title.setGravity(Gravity.CENTER);
         col.addView(title, UI.lp(this, -2, -2, 0, 18, 0, 0));
@@ -73,7 +76,7 @@ public class SetupActivity extends Activity {
         TextView go = UI.button(this, "Start my journey  →", UI.ACCENT, Color.WHITE);
         go.setTextSize(16);
         go.setMinHeight(dp(56));
-        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#7C5CFF"), Color.parseColor("#28B5F0")});
+        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#6D4AFF"), Color.parseColor("#33A1FF")});
         g.setCornerRadius(dp(28));
         go.setBackground(g);
         go.setElevation(dp(8));

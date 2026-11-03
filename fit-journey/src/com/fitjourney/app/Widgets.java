@@ -65,7 +65,7 @@ public final class Widgets {
             track.setStyle(Paint.Style.STROKE);
             arc.setStyle(Paint.Style.STROKE); arc.setStrokeCap(Paint.Cap.ROUND);
             glow.setStyle(Paint.Style.STROKE); glow.setStrokeCap(Paint.Cap.ROUND); glow.setMaskFilter(new BlurMaskFilter(dp(c, 8), BlurMaskFilter.Blur.NORMAL));
-            big.setColor(Color.WHITE); big.setTextAlign(Paint.Align.CENTER); big.setTextSize(sp(c, 38)); big.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+            big.setColor(UI.INK); big.setTextAlign(Paint.Align.CENTER); big.setTextSize(sp(c, 38)); big.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
             small.setColor(UI.MUTED); small.setTextAlign(Paint.Align.CENTER); small.setTextSize(sp(c, 12));
             dot.setColor(Color.WHITE);
         }
@@ -96,7 +96,7 @@ public final class Widgets {
             for (int i = 0; i < 3; i++) {
                 float r = r0 - i * (t + gap);
                 box.set(cx - r, cy - r, cx + r, cy + r);
-                track.setStrokeWidth(t); track.setColor(Color.argb(46, Color.red(colors[i]), Color.green(colors[i]), Color.blue(colors[i])));
+                track.setStrokeWidth(t); track.setColor(Color.argb(52, Color.red(colors[i]), Color.green(colors[i]), Color.blue(colors[i])));
                 c.drawArc(box, 0, 360, false, track);
                 float f = start[i] + (frac[i] - start[i]) * p;
                 f = Math.max(0f, Math.min(1f, f));
@@ -128,8 +128,8 @@ public final class Widgets {
 
         public WaveView(Context c) {
             super(c);
-            ring.setStyle(Paint.Style.STROKE); ring.setStrokeWidth(dp(c, 3)); ring.setColor(Color.argb(150, 40, 215, 245));
-            back.setColor(Color.argb(30, 40, 215, 245));
+            ring.setStyle(Paint.Style.STROKE); ring.setStrokeWidth(dp(c, 3)); ring.setColor(Color.argb(170, 18, 184, 230));
+            back.setColor(Color.argb(46, 18, 184, 230));
             txt.setColor(Color.WHITE); txt.setTextAlign(Paint.Align.CENTER); txt.setTextSize(sp(c, 21)); txt.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
             txt.setShadowLayer(dp(c, 3), 0, dp(c, 1), Color.argb(120, 0, 30, 60));
             sub.setColor(Color.WHITE); sub.setAlpha(210); sub.setTextAlign(Paint.Align.CENTER); sub.setTextSize(sp(c, 11));
@@ -203,6 +203,10 @@ public final class Widgets {
             }
             c.restore();
             c.drawCircle(cx, cy, r, ring);
+            boolean onWater = shown > 0.56f;
+            txt.setColor(onWater ? Color.WHITE : UI.INK);
+            txt.setShadowLayer(onWater ? dp(getContext(), 3) : 0f, 0, dp(getContext(), 1), Color.argb(120, 0, 30, 60));
+            sub.setColor(onWater ? Color.WHITE : UI.MUTED);
             c.drawText(main, cx, cy + txt.getTextSize() * 0.15f, txt);
             c.drawText(caption, cx, cy + txt.getTextSize() * 0.15f + sub.getTextSize() * 1.6f, sub);
         }
@@ -227,10 +231,10 @@ public final class Widgets {
             super(c);
             line.setStyle(Paint.Style.STROKE); line.setStrokeWidth(dp(c, 3)); line.setStrokeCap(Paint.Cap.ROUND); line.setStrokeJoin(Paint.Join.ROUND);
             line.setColor(UI.WEIGHT);
-            grid.setColor(Color.argb(28, 255, 255, 255)); grid.setStrokeWidth(Math.max(1f, dp(c, 1)));
+            grid.setColor(Color.argb(22, 27, 33, 64)); grid.setStrokeWidth(Math.max(1f, dp(c, 1)));
             txt.setColor(UI.MUTED); txt.setTextSize(sp(c, 10.5f));
             goalP.setStyle(Paint.Style.STROKE); goalP.setStrokeWidth(dp(c, 1.6f)); goalP.setColor(UI.GREEN); goalP.setPathEffect(new DashPathEffect(new float[]{dp(c, 6), dp(c, 5)}, 0));
-            tipP.setColor(Color.parseColor("#2A3560")); tipT.setColor(Color.WHITE); tipT.setTextSize(sp(c, 12)); tipT.setTextAlign(Paint.Align.CENTER); tipT.setTypeface(Typeface.DEFAULT_BOLD);
+            tipP.setColor(Color.parseColor("#1B2140")); tipT.setColor(Color.WHITE); tipT.setTextSize(sp(c, 12)); tipT.setTextAlign(Paint.Align.CENTER); tipT.setTypeface(Typeface.DEFAULT_BOLD);
         }
 
         public void set(double[] x, double[] y, String[] labels, double goal) {
@@ -309,7 +313,7 @@ public final class Widgets {
             area.lineTo(px[n - 1], h - b);
             area.lineTo(px[0], h - b);
             area.close();
-            fill.setShader(new LinearGradient(0, t, 0, h - b, Color.argb(110, 183, 148, 246), Color.argb(0, 183, 148, 246), Shader.TileMode.CLAMP));
+            fill.setShader(new LinearGradient(0, t, 0, h - b, Color.argb(95, 139, 92, 246), Color.argb(0, 139, 92, 246), Shader.TileMode.CLAMP));
             c.drawPath(area, fill);
             c.drawPath(path, line);
             dot.setColor(UI.WEIGHT);
@@ -317,17 +321,21 @@ public final class Widgets {
             c.restore();
             // last point halo
             int last = n - 1;
-            dot.setColor(Color.argb(60, 183, 148, 246));
-            c.drawCircle(px[last], py[last], dp(ctx, 9), dot);
+            dot.setColor(Color.argb(60, 139, 92, 246));
+            c.drawCircle(px[last], py[last], dp(ctx, 10), dot);
+            dot.setColor(UI.WEIGHT);
+            c.drawCircle(px[last], py[last], dp(ctx, 6), dot);
             dot.setColor(Color.WHITE);
-            c.drawCircle(px[last], py[last], dp(ctx, 4.5f), dot);
+            c.drawCircle(px[last], py[last], dp(ctx, 3.2f), dot);
             // selection
             if (sel >= 0 && sel < n) {
-                grid.setColor(Color.argb(90, 255, 255, 255));
+                grid.setColor(Color.argb(90, 27, 33, 64));
                 c.drawLine(px[sel], t, px[sel], h - b, grid);
-                grid.setColor(Color.argb(28, 255, 255, 255));
+                grid.setColor(Color.argb(22, 27, 33, 64));
+                dot.setColor(UI.WEIGHT);
+                c.drawCircle(px[sel], py[sel], dp(ctx, 6.5f), dot);
                 dot.setColor(Color.WHITE);
-                c.drawCircle(px[sel], py[sel], dp(ctx, 5), dot);
+                c.drawCircle(px[sel], py[sel], dp(ctx, 3.5f), dot);
                 String s = Fit.kg(ys[sel]) + " kg  •  " + labels[sel];
                 float tw = tipT.measureText(s) + dp(ctx, 20), th = dp(ctx, 28);
                 float tx = Math.max(tw / 2f + 2, Math.min(w - tw / 2f - 2, px[sel]));
@@ -353,9 +361,9 @@ public final class Widgets {
         public BarsView(Context c) {
             super(c);
             txt.setTextAlign(Paint.Align.CENTER); txt.setTextSize(sp(c, 11));
-            val.setTextAlign(Paint.Align.CENTER); val.setTextSize(sp(c, 9.5f)); val.setColor(Color.WHITE);
+            val.setTextAlign(Paint.Align.CENTER); val.setTextSize(sp(c, 9.5f)); val.setColor(UI.INK);
             goalP.setStyle(Paint.Style.STROKE); goalP.setStrokeWidth(dp(c, 1.5f)); goalP.setPathEffect(new DashPathEffect(new float[]{dp(c, 5), dp(c, 4)}, 0));
-            base.setColor(Color.argb(40, 255, 255, 255)); base.setStrokeWidth(Math.max(1f, dp(c, 1)));
+            base.setColor(Color.argb(40, 27, 33, 64)); base.setStrokeWidth(Math.max(1f, dp(c, 1)));
         }
 
         public void set(String[] labels, float[] v, String[] vals, float goal, int color, int highlight) {
@@ -378,11 +386,11 @@ public final class Widgets {
                 boolean today = i == hi;
                 float bh = v[i] <= 0 ? dp(ctx, 3) : Math.max(dp(ctx, 6), area * v[i] / max) * Math.min(grow, 1.1f);
                 r.set(cx - bw / 2f, baseY - bh, cx + bw / 2f, baseY);
-                bar.setShader(new LinearGradient(0, r.top, 0, r.bottom, today ? lighter(color, 0.4f) : color, today ? color : darker(color, 0.55f), Shader.TileMode.CLAMP));
+                bar.setShader(new LinearGradient(0, r.top, 0, r.bottom, today ? color : lighter(color, 0.35f), today ? darker(color, 0.85f) : lighter(color, 0.1f), Shader.TileMode.CLAMP));
                 bar.setAlpha(v[i] <= 0 ? 60 : 255);
                 c.drawRoundRect(r, bw / 3f, bw / 3f, bar);
                 if (v[i] > 0 && grow > 0.9f) c.drawText(vals[i], cx, r.top - dp(ctx, 4), val);
-                txt.setColor(today ? Color.WHITE : UI.MUTED);
+                txt.setColor(today ? UI.INK : UI.MUTED);
                 txt.setTypeface(today ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
                 c.drawText(labels[i], cx, h - dp(ctx, 6), txt);
             }
@@ -413,10 +421,10 @@ public final class Widgets {
 
         public static int colorOf(int level) {
             switch (level) {
-                case 1: return Color.parseColor("#2E4A8F");
-                case 2: return Color.parseColor("#7C5CFF");
-                case 3: return Color.parseColor("#34D399");
-                default: return Color.parseColor("#1C2542");
+                case 1: return Color.parseColor("#C9D6FF");
+                case 2: return Color.parseColor("#8E73FF");
+                case 3: return Color.parseColor("#10B981");
+                default: return Color.parseColor("#E9EDF8");
             }
         }
 
@@ -440,11 +448,11 @@ public final class Widgets {
                 float k = Math.max(0f, Math.min(1f, pop * 1.2f - (i / (float) levels.length) * 0.2f));
                 float inset = cw * (1f - k) / 2f;
                 r.set(x + inset, y + inset, x + cw - inset, y + cw - inset);
-                if (levels[i] < 0) { cell.setColor(Color.argb(18, 255, 255, 255)); }
+                if (levels[i] < 0) { cell.setColor(Color.argb(14, 27, 33, 64)); }
                 else cell.setColor(colorOf(levels[i]));
                 c.drawRoundRect(r, cw * 0.28f, cw * 0.28f, cell);
                 if (i == todayIdx) {
-                    cell.setStyle(Paint.Style.STROKE); cell.setStrokeWidth(dp(ctx, 2)); cell.setColor(Color.WHITE);
+                    cell.setStyle(Paint.Style.STROKE); cell.setStrokeWidth(dp(ctx, 2)); cell.setColor(UI.INK);
                     c.drawRoundRect(r, cw * 0.28f, cw * 0.28f, cell);
                     cell.setStyle(Paint.Style.FILL);
                 }
@@ -496,12 +504,41 @@ public final class Widgets {
             for (int i = 1; i < 4; i++) c.drawText(i == 1 ? "18.5" : (i == 2 ? "25" : "30"), pos(cuts[i], w), by + bh + dp(ctx, 15), txt);
             if (bmi > 0) {
                 float x = pos(bmi, w) * grow + pos(15, w) * (1 - grow);
-                p.setColor(Color.WHITE);
+                p.setColor(UI.INK);
                 Path tri = new Path();
                 tri.moveTo(x, by - dp(ctx, 3)); tri.lineTo(x - dp(ctx, 7), by - dp(ctx, 13)); tri.lineTo(x + dp(ctx, 7), by - dp(ctx, 13)); tri.close();
                 c.drawPath(tri, p);
-                c.drawCircle(x, by + bh / 2f, bh * 0.75f, p);
+                c.drawCircle(x, by + bh / 2f, bh * 0.8f, p);
+                p.setColor(Color.WHITE);
+                c.drawCircle(x, by + bh / 2f, bh * 0.42f, p);
             }
+        }
+    }
+
+    /* ================================================================== banner */
+    /** Colourful rounded header with soft decorative bubbles. Children (title row) are laid out on top. */
+    public static final class Banner extends android.widget.LinearLayout {
+        private final Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+        public Banner(Context c, int c1, int c2) {
+            super(c);
+            setWillNotDraw(false);
+            android.graphics.drawable.GradientDrawable g = new android.graphics.drawable.GradientDrawable(android.graphics.drawable.GradientDrawable.Orientation.TL_BR, new int[]{c1, c2});
+            float r = dp(c, 34);
+            g.setCornerRadii(new float[]{0, 0, 0, 0, r, r, r, r});
+            setBackground(g);
+        }
+
+        @Override protected void onDraw(Canvas c) {
+            float w = getWidth(), h = getHeight();
+            p.setColor(Color.argb(30, 255, 255, 255));
+            c.drawCircle(w * 0.88f, h * 0.18f, h * 0.62f, p);
+            p.setColor(Color.argb(20, 255, 255, 255));
+            c.drawCircle(w * 0.06f, h * 0.95f, h * 0.5f, p);
+            p.setColor(Color.argb(60, 255, 255, 255));
+            c.drawCircle(w * 0.62f, h * 0.30f, dp(getContext(), 4), p);
+            c.drawCircle(w * 0.74f, h * 0.55f, dp(getContext(), 2.5f), p);
+            c.drawCircle(w * 0.40f, h * 0.18f, dp(getContext(), 2f), p);
         }
     }
 
@@ -523,10 +560,10 @@ public final class Widgets {
         }
 
         @Override protected void onSizeChanged(int w, int h, int ow, int oh) {
-            bg.setShader(new LinearGradient(0, 0, 0, h, Color.parseColor("#080B16"), Color.parseColor("#0C1226"), Shader.TileMode.CLAMP));
+            bg.setShader(new LinearGradient(0, 0, 0, h, Color.parseColor("#F8F9FF"), Color.parseColor("#EAF0FF"), Shader.TileMode.CLAMP));
             for (int i = 0; i < 3; i++) {
                 float rad = w * pos[i][2];
-                shaders[i] = new RadialGradient(0, 0, rad, Color.argb(95, Color.red(cols[i]), Color.green(cols[i]), Color.blue(cols[i])), Color.argb(0, Color.red(cols[i]), Color.green(cols[i]), Color.blue(cols[i])), Shader.TileMode.CLAMP);
+                shaders[i] = new RadialGradient(0, 0, rad, Color.argb(70, Color.red(cols[i]), Color.green(cols[i]), Color.blue(cols[i])), Color.argb(0, Color.red(cols[i]), Color.green(cols[i]), Color.blue(cols[i])), Shader.TileMode.CLAMP);
             }
         }
 

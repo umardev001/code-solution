@@ -1,4 +1,4 @@
-# Fit Journey (Android app) – v1.0
+# Fit Journey (Android app) – v1.1 (light theme)
 
 Weight-loss companion: daily weight, steps, water, sleep, workout and calories – with beautiful charts.
 

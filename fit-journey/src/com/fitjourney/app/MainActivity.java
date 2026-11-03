@@ -32,6 +32,7 @@ import java.util.List;
 public class MainActivity extends Activity implements SensorEventListener {
     private static final String[] ICONS = {"🏠", "⚖️", "📅", "⚙️"};
     private static final String[] NAMES = {"Today", "Progress", "History", "Me"};
+    private static final int[][] BANNER = {{0xFF6D4AFF, 0xFF33A1FF}, {0xFF8B5CF6, 0xFFEC6FB5}, {0xFF12B8E6, 0xFF6D8BFF}, {0xFF6D4AFF, 0xFFB06BFF}};
 
     private FrameLayout content;
     private LinearLayout nav;
@@ -52,8 +53,9 @@ public class MainActivity extends Activity implements SensorEventListener {
         Reminders.schedule(this);
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            getWindow().setStatusBarColor(Color.parseColor("#080B16"));
-            getWindow().setNavigationBarColor(Color.parseColor("#0F1530"));
+            getWindow().setStatusBarColor(BANNER[0][0]);
+            getWindow().setNavigationBarColor(Color.WHITE);
+            if (Build.VERSION.SDK_INT >= 26) getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         }
         FrameLayout root = new FrameLayout(this);
         root.addView(new Widgets.OrbsView(this, false, UI.ACCENT, UI.WATER, UI.STEPS), new FrameLayout.LayoutParams(-1, -1));
@@ -64,6 +66,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         nav = new LinearLayout(this);
         nav.setBackground(navBg());
         nav.setPadding(dp(8), dp(6), dp(8), dp(6));
+        nav.setElevation(dp(14));
         shell.addView(nav, new LinearLayout.LayoutParams(-1, -2));
         root.addView(shell, new FrameLayout.LayoutParams(-1, -1));
         setContentView(root);
@@ -103,9 +106,9 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     /* ------------------------------------------------------------------ nav */
     private GradientDrawable navBg() {
-        GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[]{Color.parseColor("#141B38"), Color.parseColor("#0F1530")});
-        g.setCornerRadii(new float[]{dp(24), dp(24), dp(24), dp(24), 0, 0, 0, 0});
-        g.setStroke(Math.max(1, dp(1)), Color.parseColor("#1FFFFFFF"));
+        GradientDrawable g = new GradientDrawable();
+        g.setColor(Color.WHITE);
+        g.setCornerRadii(new float[]{dp(26), dp(26), dp(26), dp(26), 0, 0, 0, 0});
         return g;
     }
 
@@ -118,17 +121,17 @@ public class MainActivity extends Activity implements SensorEventListener {
             item.setOrientation(LinearLayout.VERTICAL);
             item.setGravity(Gravity.CENTER);
             item.setPadding(0, dp(4), 0, dp(2));
-            TextView ic = UI.label(this, ICONS[i], 20, Color.WHITE, false);
+            TextView ic = UI.label(this, ICONS[i], 20, UI.INK, false);
             ic.setGravity(Gravity.CENTER);
             ic.setIncludeFontPadding(false);
             ic.setPadding(dp(18), dp(6), dp(18), dp(6));
             if (on) {
-                GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#7C5CFF"), Color.parseColor("#28B5F0")});
+                GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#E6DFFF"), Color.parseColor("#D3EEFF")});
                 g.setCornerRadius(dp(18));
                 ic.setBackground(g);
-            } else ic.setAlpha(0.55f);
+            } else ic.setAlpha(0.6f);
             item.addView(ic);
-            TextView tx = UI.label(this, NAMES[i], 11, on ? Color.WHITE : UI.MUTED, on);
+            TextView tx = UI.label(this, NAMES[i], 11, on ? UI.ACCENT : UI.MUTED, on);
             tx.setGravity(Gravity.CENTER);
             item.addView(tx, UI.lp(this, -2, -2, 0, 2, 0, 0));
             item.setClickable(true);
@@ -145,6 +148,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     private void render(boolean keepScroll) {
         if (content == null) return;
         lastRebuild = System.currentTimeMillis();
+        if (Build.VERSION.SDK_INT >= 21) getWindow().setStatusBarColor(BANNER[tab][0]);
         final int keepY = keepScroll && sv != null ? sv.getScrollY() : 0;
         content.removeAllViews();
         sv = new ScrollView(this);
@@ -177,13 +181,13 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     /* ---------------------------------------------------------- small kit */
     private LinearLayout header(LinearLayout col, String small, String big, View right) {
-        LinearLayout top = new LinearLayout(this);
+        Widgets.Banner top = new Widgets.Banner(this, BANNER[tab][0], BANNER[tab][1]);
         top.setGravity(Gravity.CENTER_VERTICAL);
-        top.setPadding(dp(22), dp(18), dp(18), dp(6));
+        top.setPadding(dp(22), dp(20), dp(18), dp(64));
         LinearLayout names = new LinearLayout(this);
         names.setOrientation(LinearLayout.VERTICAL);
-        names.addView(UI.label(this, small, 13, UI.MUTED, false));
-        TextView b = UI.label(this, big, 26, Color.WHITE, true);
+        names.addView(UI.label(this, small, 13.5f, Color.argb(215, 255, 255, 255), false));
+        TextView b = UI.label(this, big, 27, Color.WHITE, true);
         b.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         b.setSingleLine(true);
         b.setEllipsize(TextUtils.TruncateAt.END);
@@ -192,6 +196,21 @@ public class MainActivity extends Activity implements SensorEventListener {
         if (right != null) top.addView(right);
         col.addView(top, new LinearLayout.LayoutParams(-1, -2));
         return top;
+    }
+
+    private TextView bannerPill(String text) {
+        TextView v = UI.label(this, text, 13, Color.WHITE, true);
+        v.setBackground(UI.round(this, Color.argb(60, 255, 255, 255), 17));
+        v.setPadding(dp(13), dp(7), dp(13), dp(7));
+        v.setSingleLine(true);
+        return v;
+    }
+
+    /** Layout params that pull a card up so it overlaps the banner above it. */
+    private LinearLayout.LayoutParams overlap() {
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(-1, -2);
+        lp.setMargins(dp(16), -dp(44), dp(16), dp(6));
+        return lp;
     }
 
     private TextView pill(String text, int color) {
@@ -254,6 +273,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         LinearLayout c = new LinearLayout(this);
         c.setOrientation(LinearLayout.VERTICAL);
         c.setBackground(UI.glass(this, 22));
+        c.setElevation(dp(3));
         c.setPadding(dp(14), dp(14), dp(14), dp(14));
         c.setClickable(true);
         c.setOnClickListener(new UI.Tap() { @Override public void tap() { tap.run(); } });
@@ -263,7 +283,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         TextView l = UI.label(this, label, 12.5f, UI.MUTED, true);
         head.addView(l, UI.lp(this, -2, -2, 8, 0, 0, 0));
         c.addView(head);
-        TextView v = UI.label(this, value, 22, Color.WHITE, true);
+        TextView v = UI.label(this, value, 22, UI.INK, true);
         v.setSingleLine(true);
         v.setEllipsize(TextUtils.TruncateAt.END);
         v.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
@@ -286,15 +306,15 @@ public class MainActivity extends Activity implements SensorEventListener {
     }
 
     private TextView smallBtn(String text, int tint, UI.Tap tap) {
-        TextView v = UI.label(this, text, 13.5f, Color.WHITE, true);
+        TextView v = UI.label(this, text, 13.5f, Widgets.darker(tint, 0.78f), true);
         v.setGravity(Gravity.CENTER);
         v.setSingleLine(true);
         v.setMinHeight(dp(42));
         v.setPadding(dp(8), dp(8), dp(8), dp(8));
         GradientDrawable g = new GradientDrawable();
         g.setCornerRadius(dp(21));
-        g.setColor(UI.alpha(tint, 55));
-        g.setStroke(Math.max(1, dp(1)), UI.alpha(tint, 150));
+        g.setColor(UI.alpha(tint, 30));
+        g.setStroke(Math.max(1, dp(1)), UI.alpha(tint, 110));
         v.setBackground(g);
         v.setClickable(true);
         v.setOnClickListener(tap);
@@ -323,17 +343,15 @@ public class MainActivity extends Activity implements SensorEventListener {
         int hr = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
         String greet = hr < 12 ? "Good morning" : (hr < 17 ? "Good afternoon" : "Good evening");
         int streak = Store.streak();
-        TextView sp = pill("🔥 " + streak + (streak == 1 ? " day" : " days"), streak > 0 ? UI.CAL : UI.MUTED);
+        TextView sp = bannerPill("🔥 " + streak + (streak == 1 ? " day" : " days"));
         header(col, greet + (p.name.isEmpty() ? "" : ","), p.name.isEmpty() ? "Let’s move 👋" : p.name + " 👋", sp);
 
         // hero rings
         LinearLayout hero = new LinearLayout(this);
         hero.setOrientation(LinearLayout.VERTICAL);
         hero.setGravity(Gravity.CENTER_HORIZONTAL);
-        GradientDrawable hg = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#232C57"), Color.parseColor("#141A36"), Color.parseColor("#0F1430")});
-        hg.setCornerRadius(dp(30));
-        hg.setStroke(Math.max(1, dp(1)), Color.parseColor("#26FFFFFF"));
-        hero.setBackground(hg);
+        hero.setBackground(UI.glass(this, 30));
+        hero.setElevation(dp(8));
         hero.setPadding(dp(16), dp(18), dp(16), dp(16));
         int sw = getResources().getDisplayMetrics().widthPixels;
         int size = Math.min(dp(250), (int) (sw * 0.68f));
@@ -348,11 +366,11 @@ public class MainActivity extends Activity implements SensorEventListener {
         legend.addView(legendItem("Workout", d.workout + " min", "/ " + p.workoutGoal + " min", UI.WORK), UI.lp(this, 0, -2, 4, 0, 0, 0));
         for (int i = 0; i < 3; i++) ((LinearLayout.LayoutParams) legend.getChildAt(i).getLayoutParams()).weight = 1f;
         hero.addView(legend, UI.lp(this, -1, -2, 0, 14, 0, 0));
-        TextView msg = UI.label(this, coach(d, p), 13.5f, Color.parseColor("#D6DBF5"), false);
+        TextView msg = UI.label(this, coach(d, p), 13.5f, Color.parseColor("#3B4470"), false);
         msg.setGravity(Gravity.CENTER);
         msg.setLineSpacing(0, 1.2f);
         hero.addView(msg, UI.lp(this, -1, -2, 6, 14, 6, 0));
-        col.addView(hero, cardLp(16, 10, 16, 6));
+        col.addView(hero, overlap());
 
         // water
         LinearLayout wbody = new LinearLayout(this);
@@ -365,7 +383,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         wbody.addView(wave, new LinearLayout.LayoutParams(dp(132), dp(132)));
         LinearLayout wr = new LinearLayout(this);
         wr.setOrientation(LinearLayout.VERTICAL);
-        TextView big = UI.label(this, Fit.water(d.water), 26, Color.WHITE, true);
+        TextView big = UI.label(this, Fit.water(d.water), 26, UI.INK, true);
         big.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         big.setSingleLine(true);
         wr.addView(big);
@@ -389,7 +407,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         sbody.setOrientation(LinearLayout.VERTICAL);
         LinearLayout srow = new LinearLayout(this);
         srow.setGravity(Gravity.BOTTOM);
-        TextView sbig = UI.label(this, Fit.num(d.steps), 34, Color.WHITE, true);
+        TextView sbig = UI.label(this, Fit.num(d.steps), 34, UI.INK, true);
         sbig.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         sbig.setSingleLine(true);
         srow.addView(sbig);
@@ -430,7 +448,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         l.setPadding(dp(4), dp(10), dp(4), dp(10));
         TextView t = UI.label(this, "● " + label, 11, color, true);
         l.addView(t);
-        TextView v = UI.label(this, value, 15, Color.WHITE, true);
+        TextView v = UI.label(this, value, 15, UI.INK, true);
         v.setSingleLine(true);
         v.setEllipsize(TextUtils.TruncateAt.END);
         l.addView(v, UI.lp(this, -2, -2, 0, 3, 0, 0));
@@ -517,17 +535,15 @@ public class MainActivity extends Activity implements SensorEventListener {
         // hero
         LinearLayout hero = new LinearLayout(this);
         hero.setOrientation(LinearLayout.VERTICAL);
-        GradientDrawable hg = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#3A2A7A"), Color.parseColor("#1C1D4A"), Color.parseColor("#12163A")});
-        hg.setCornerRadius(dp(30));
-        hg.setStroke(Math.max(1, dp(1)), Color.parseColor("#33B794F6"));
-        hero.setBackground(hg);
+        hero.setBackground(UI.glass(this, 30));
+        hero.setElevation(dp(8));
         hero.setPadding(dp(22), dp(20), dp(22), dp(20));
         TextView cap = UI.label(this, "CURRENT WEIGHT", 12, UI.WEIGHT, true);
         cap.setLetterSpacing(0.12f);
         hero.addView(cap);
         LinearLayout row = new LinearLayout(this);
         row.setGravity(Gravity.BOTTOM);
-        TextView big = UI.label(this, Fit.kg(cur), 46, Color.WHITE, true);
+        TextView big = UI.label(this, Fit.kg(cur), 46, UI.INK, true);
         big.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         row.addView(big);
         TextView kgl = UI.label(this, " kg", 18, UI.MUTED, true);
@@ -541,7 +557,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         hero.addView(bar(UI.WEIGHT, (float) pr, 12), UI.lp(this, -1, -2, 0, 16, 0, 0));
         LinearLayout lab = new LinearLayout(this);
         TextView a = UI.label(this, "Start " + Fit.kg(p.startKg), 12, UI.MUTED, false);
-        TextView m = UI.label(this, Math.round(pr * 100) + "%", 12, Color.WHITE, true);
+        TextView m = UI.label(this, Math.round(pr * 100) + "%", 12, UI.INK, true);
         m.setGravity(Gravity.CENTER);
         TextView z = UI.label(this, "Goal " + Fit.kg(p.goalKg), 12, UI.GREEN, true);
         z.setGravity(Gravity.END);
@@ -549,13 +565,13 @@ public class MainActivity extends Activity implements SensorEventListener {
         lab.addView(m, new LinearLayout.LayoutParams(0, -2, 1f));
         lab.addView(z, new LinearLayout.LayoutParams(0, -2, 1f));
         hero.addView(lab, UI.lp(this, -1, -2, 0, 6, 0, 0));
-        col.addView(hero, cardLp(16, 10, 16, 6));
+        col.addView(hero, overlap());
 
         // chart
         LinearLayout chart = UI.card(this);
         LinearLayout head = new LinearLayout(this);
         head.setGravity(Gravity.CENTER_VERTICAL);
-        head.addView(UI.label(this, "Weight trend", 16, Color.WHITE, true), new LinearLayout.LayoutParams(0, -2, 1f));
+        head.addView(UI.label(this, "Weight trend", 16, UI.INK, true), new LinearLayout.LayoutParams(0, -2, 1f));
         int[] rs = {7, 30, 90, 0};
         String[] rn = {"7D", "30D", "90D", "All"};
         for (int i = 0; i < 4; i++) {
@@ -564,7 +580,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             c.setGravity(Gravity.CENTER);
             c.setPadding(dp(10), dp(6), dp(10), dp(6));
             if (range == r) {
-                GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#7C5CFF"), Color.parseColor("#28B5F0")});
+                GradientDrawable g = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor("#6D4AFF"), Color.parseColor("#33A1FF")});
                 g.setCornerRadius(dp(14));
                 c.setBackground(g);
             }
@@ -616,7 +632,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         LinearLayout bc = UI.card(this);
         LinearLayout bh = new LinearLayout(this);
         bh.setGravity(Gravity.CENTER_VERTICAL);
-        bh.addView(UI.label(this, "Body Mass Index", 16, Color.WHITE, true), new LinearLayout.LayoutParams(0, -2, 1f));
+        bh.addView(UI.label(this, "Body Mass Index", 16, UI.INK, true), new LinearLayout.LayoutParams(0, -2, 1f));
         int bcol = bmi < 18.5 ? UI.BLUE : (bmi < 25 ? UI.GREEN : (bmi < 30 ? UI.AMBER : UI.RED));
         bh.addView(pill(Fit.kg(bmi) + " • " + Fit.bmiLabel(bmi), bcol));
         bc.addView(bh);
@@ -627,7 +643,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         bc.addView(UI.label(this, "Healthy range at " + p.heightCm + " cm:  " + Fit.kg(m1) + " – " + Fit.kg(m2) + " kg", 12.5f, UI.MUTED, false));
         col.addView(bc);
 
-        col.addView(bigGradientButton("＋  Log today’s weight", Color.parseColor("#7C5CFF"), Color.parseColor("#B794F6"), new UI.Tap() { @Override public void tap() { weightDialog(); } }), cardLp(16, 12, 16, 4));
+        col.addView(bigGradientButton("＋  Log today’s weight", Color.parseColor("#6D4AFF"), Color.parseColor("#B06BFF"), new UI.Tap() { @Override public void tap() { weightDialog(); } }), cardLp(16, 12, 16, 4));
 
         // list
         TextView sec = UI.label(this, "WEIGH-INS", 13, UI.MUTED, true);
@@ -646,16 +662,17 @@ public class MainActivity extends Activity implements SensorEventListener {
             LinearLayout r = new LinearLayout(this);
             r.setGravity(Gravity.CENTER_VERTICAL);
             r.setBackground(UI.glass(this, 20));
+            r.setElevation(dp(2));
             r.setPadding(dp(14), dp(12), dp(16), dp(12));
             r.setClickable(true);
             r.setOnClickListener(new UI.Tap() { @Override public void tap() { Dlg.editDay(MainActivity.this, d.key, again); } });
             LinearLayout mid = new LinearLayout(this);
             mid.setOrientation(LinearLayout.VERTICAL);
-            mid.addView(UI.label(this, Fit.dow(d.key) + ", " + Fit.shortDate(d.key), 15, Color.WHITE, true));
+            mid.addView(UI.label(this, Fit.dow(d.key) + ", " + Fit.shortDate(d.key), 15, UI.INK, true));
             r.addView(mid, new LinearLayout.LayoutParams(0, -2, 1f));
             boolean dGood = losing ? dv < 0 : dv > 0;
             if (Math.abs(dv) >= 0.05) r.addView(UI.label(this, (dv < 0 ? "▼ " : "▲ ") + Fit.kg(Math.abs(dv)), 13, dGood ? UI.GREEN : UI.AMBER, true), UI.lp(this, -2, -2, 0, 0, 14, 0));
-            r.addView(UI.label(this, Fit.kg(d.weight) + " kg", 17, Color.WHITE, true));
+            r.addView(UI.label(this, Fit.kg(d.weight) + " kg", 17, UI.INK, true));
             col.addView(r, cardLp(16, 5, 16, 5));
         }
     }
@@ -697,16 +714,17 @@ public class MainActivity extends Activity implements SensorEventListener {
         sum.addView(r2, UI.lp(this, -1, -2, 0, 8, 0, 0));
         if (bestSteps > 0) sum.addView(UI.label(this, "🏆 Best day: " + bestDay + " with " + Fit.num(bestSteps) + " steps", 12.5f, UI.MUTED, false), UI.lp(this, -1, -2, 0, 12, 0, 0));
         col.addView(sum);
+        ((LinearLayout.LayoutParams) sum.getLayoutParams()).topMargin = -dp(44);
 
         LinearLayout c1 = UI.card(this);
-        c1.addView(UI.label(this, "👟 Steps", 16, Color.WHITE, true));
+        c1.addView(UI.label(this, "👟 Steps", 16, UI.INK, true));
         Widgets.BarsView b1 = new Widgets.BarsView(this);
         b1.set(lb, st, sv_, p.stepGoal, UI.STEPS, n - 1);
         c1.addView(b1, UI.lp(this, -1, dp(160), 0, 8, 0, 0));
         col.addView(c1);
 
         LinearLayout c2 = UI.card(this);
-        c2.addView(UI.label(this, "💧 Water (litres)", 16, Color.WHITE, true));
+        c2.addView(UI.label(this, "💧 Water (litres)", 16, UI.INK, true));
         Widgets.BarsView b2 = new Widgets.BarsView(this);
         b2.set(lb, wa, wv, p.waterGoal, UI.WATER, n - 1);
         c2.addView(b2, UI.lp(this, -1, dp(160), 0, 8, 0, 0));
@@ -726,7 +744,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         LinearLayout c3 = UI.card(this);
         LinearLayout h3 = new LinearLayout(this);
         h3.setGravity(Gravity.CENTER_VERTICAL);
-        h3.addView(UI.label(this, "🗓️ Consistency", 16, Color.WHITE, true), new LinearLayout.LayoutParams(0, -2, 1f));
+        h3.addView(UI.label(this, "🗓️ Consistency", 16, UI.INK, true), new LinearLayout.LayoutParams(0, -2, 1f));
         h3.addView(UI.label(this, "goals hit per day", 11.5f, UI.MUTED, false));
         c3.addView(h3);
         Widgets.HeatView hv = new Widgets.HeatView(this);
@@ -756,12 +774,13 @@ public class MainActivity extends Activity implements SensorEventListener {
             LinearLayout r = new LinearLayout(this);
             r.setGravity(Gravity.CENTER_VERTICAL);
             r.setBackground(UI.glass(this, 20));
+            r.setElevation(dp(2));
             r.setPadding(dp(14), dp(11), dp(14), dp(11));
             r.setClickable(true);
             r.setOnClickListener(new UI.Tap() { @Override public void tap() { Dlg.editDay(MainActivity.this, k, again); } });
             LinearLayout mid = new LinearLayout(this);
             mid.setOrientation(LinearLayout.VERTICAL);
-            mid.addView(UI.label(this, i == 0 ? "Today" : (i == 1 ? "Yesterday" : Fit.dow(k) + ", " + Fit.shortDate(k)), 15, Color.WHITE, true));
+            mid.addView(UI.label(this, i == 0 ? "Today" : (i == 1 ? "Yesterday" : Fit.dow(k) + ", " + Fit.shortDate(k)), 15, UI.INK, true));
             String line = "👟 " + Fit.num(d.steps) + "   💧 " + Fit.water(d.water) + (d.weight > 0 ? "   ⚖️ " + Fit.kg(d.weight) : "");
             TextView ls = UI.label(this, line, 12, UI.MUTED, false);
             ls.setSingleLine(true);
@@ -772,7 +791,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             LinearLayout dots = new LinearLayout(this);
             for (int j = 0; j < 3; j++) {
                 View dt = new View(this);
-                dt.setBackground(UI.round(this, j < hs ? UI.GREEN : Color.parseColor("#2A3358"), 5));
+                dt.setBackground(UI.round(this, j < hs ? UI.GREEN : Color.parseColor("#DDE2F2"), 5));
                 dots.addView(dt, UI.lp(this, dp(10), dp(10), 2, 0, 2, 0));
             }
             r.addView(dots);
@@ -789,7 +808,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         a.setLetterSpacing(0.06f);
         a.setSingleLine(true);
         l.addView(a);
-        TextView v = UI.label(this, value, 16, Color.WHITE, true);
+        TextView v = UI.label(this, value, 16, UI.INK, true);
         v.setSingleLine(true);
         v.setEllipsize(TextUtils.TruncateAt.END);
         l.addView(v, UI.lp(this, -2, -2, 0, 3, 0, 0));
@@ -802,26 +821,27 @@ public class MainActivity extends Activity implements SensorEventListener {
         header(col, "Settings", "Me", null);
         LinearLayout pc = new LinearLayout(this);
         pc.setGravity(Gravity.CENTER_VERTICAL);
-        GradientDrawable hg = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#2B2370"), Color.parseColor("#17204A")});
+        GradientDrawable hg = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#6D4AFF"), Color.parseColor("#33A1FF")});
         hg.setCornerRadius(dp(28));
-        hg.setStroke(Math.max(1, dp(1)), Color.parseColor("#33FFFFFF"));
         pc.setBackground(hg);
+        pc.setElevation(dp(8));
         pc.setPadding(dp(18), dp(18), dp(18), dp(18));
         String initial = p.name.isEmpty() ? "🙂" : p.name.substring(0, 1).toUpperCase();
-        TextView av = UI.label(this, initial, 26, Color.WHITE, true);
+        TextView av = UI.label(this, initial, 26, UI.ACCENT, true);
         av.setGravity(Gravity.CENTER);
-        GradientDrawable ag = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{Color.parseColor("#7C5CFF"), Color.parseColor("#28B5F0")});
+        GradientDrawable ag = new GradientDrawable();
         ag.setShape(GradientDrawable.OVAL);
+        ag.setColor(Color.WHITE);
         av.setBackground(ag);
         pc.addView(av, new LinearLayout.LayoutParams(dp(64), dp(64)));
         LinearLayout t = new LinearLayout(this);
         t.setOrientation(LinearLayout.VERTICAL);
         t.addView(UI.label(this, p.name.isEmpty() ? "Your profile" : p.name, 20, Color.WHITE, true));
-        t.addView(UI.label(this, "Goal  " + Fit.kg(p.startKg) + " → " + Fit.kg(p.goalKg) + " kg", 13.5f, Color.parseColor("#C9CFF5"), false));
-        t.addView(UI.label(this, p.heightCm + " cm  •  BMI " + Fit.kg(Fit.bmi(Store.currentKg(), p.heightCm)), 12.5f, UI.MUTED, false));
+        t.addView(UI.label(this, "Goal  " + Fit.kg(p.startKg) + " → " + Fit.kg(p.goalKg) + " kg", 13.5f, Color.argb(235, 255, 255, 255), false));
+        t.addView(UI.label(this, p.heightCm + " cm  •  BMI " + Fit.kg(Fit.bmi(Store.currentKg(), p.heightCm)), 12.5f, Color.argb(190, 255, 255, 255), false));
         pc.addView(t, UI.lp(this, 0, -2, 16, 0, 0, 0));
         ((LinearLayout.LayoutParams) t.getLayoutParams()).weight = 1f;
-        col.addView(pc, cardLp(16, 10, 16, 8));
+        col.addView(pc, overlap());
 
         LinearLayout card = UI.card(this);
         card.setPadding(dp(6), dp(6), dp(6), dp(6));
@@ -845,7 +865,7 @@ public class MainActivity extends Activity implements SensorEventListener {
             }
         }));
         col.addView(card);
-        TextView foot = UI.label(this, "Fit Journey 1.0  •  your data never leaves this phone", 12, UI.MUTED, false);
+        TextView foot = UI.label(this, "Fit Journey 1.1  •  your data never leaves this phone", 12, UI.MUTED, false);
         foot.setGravity(Gravity.CENTER);
         foot.setPadding(0, dp(16), 0, dp(8));
         col.addView(foot);
@@ -860,7 +880,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         r.addView(UI.iconChip(this, emoji, tint, 42), new LinearLayout.LayoutParams(dp(42), dp(42)));
         LinearLayout t = new LinearLayout(this);
         t.setOrientation(LinearLayout.VERTICAL);
-        t.addView(UI.label(this, title, 15, Color.WHITE, true));
+        t.addView(UI.label(this, title, 15, UI.INK, true));
         TextView s = UI.label(this, sub, 12, UI.MUTED, false);
         t.addView(s);
         r.addView(t, UI.lp(this, 0, -2, 12, 0, 6, 0));
@@ -877,7 +897,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         for (int i = 0; i < opts.length; i++) {
             final int h = opts[i];
             boolean on = Store.profile().remindHours == h;
-            TextView r = UI.label(this, (on ? "●  " : "○  ") + (h == 0 ? "Off" : "Every " + h + (h == 1 ? " hour" : " hours")), 16, on ? UI.WATER : Color.WHITE, on);
+            TextView r = UI.label(this, (on ? "●  " : "○  ") + (h == 0 ? "Off" : "Every " + h + (h == 1 ? " hour" : " hours")), 16, on ? UI.WATER : UI.INK, on);
             r.setPadding(dp(6), dp(12), dp(6), dp(12));
             r.setClickable(true);
             r.setOnClickListener(new UI.Tap() {
