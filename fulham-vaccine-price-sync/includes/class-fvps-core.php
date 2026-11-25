@@ -252,7 +252,10 @@ class FVPS_Core {
 	public static function rollback( array $where ) {
 		global $wpdb;
 		$t = self::table();
-		if ( isset( $where['id'] ) ) {
+		if ( isset( $where['ids'] ) ) {
+			$ids  = array_filter( array_map( 'intval', $where['ids'] ) );
+			$logs = $ids ? $wpdb->get_results( "SELECT * FROM $t WHERE status='applied' AND id IN (" . implode( ',', $ids ) . ')' ) : array();
+		} elseif ( isset( $where['id'] ) ) {
 			$logs = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $t WHERE id=%d AND status='applied'", $where['id'] ) );
 		} else {
 			$logs = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $t WHERE run_id=%s AND status='applied'", $where['run_id'] ) );

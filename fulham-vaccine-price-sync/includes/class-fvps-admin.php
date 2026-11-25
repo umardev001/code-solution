@@ -87,7 +87,15 @@ class FVPS_Admin {
 
 	public static function do_rollback() {
 		self::guard();
-		$where = ! empty( $_POST['log_id'] ) ? array( 'id' => (int) $_POST['log_id'] ) : array( 'run_id' => sanitize_text_field( wp_unslash( $_POST['run_id'] ) ) );
+		if ( ! empty( $_POST['log_id'] ) ) {
+			$where = array( 'id' => (int) $_POST['log_id'] );
+		} elseif ( ! empty( $_POST['ids'] ) ) {
+			$where = array( 'ids' => (array) $_POST['ids'] );
+		} elseif ( ! empty( $_POST['run_id'] ) ) {
+			$where = array( 'run_id' => sanitize_text_field( wp_unslash( $_POST['run_id'] ) ) );
+		} else {
+			self::back( 'history', array( 'err' => rawurlencode( 'Nothing selected.' ) ) );
+		}
 		$r     = FVPS_Core::rollback( $where );
 		self::back( 'history', array( 'msg' => 'rolledback', 'n' => $r['restored'], 'skipped' => $r['failed'] ) );
 	}
@@ -283,20 +291,29 @@ class FVPS_Admin {
 
 		$rows = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $t WHERE run_id=%s ORDER BY post_title, id", $open ) );
 		echo '<h3>Run ' . esc_html( $open ) . '</h3>';
-		echo '<table class="widefat striped fvps-tbl" style="max-width:1100px"><thead><tr><th>Page</th><th>Vaccine</th><th>Old price</th><th>New price</th><th>Status</th><th></th></tr></thead><tbody>';
+		echo self::form( 'rollback', '', 'id="fvps-bulk"' );
+		echo '<p><button class="button" form="fvps-bulk" onclick="return confirm(\'Restore the selected prices to their previous values?\')">Restore selected to previous price</button> <small>Tick the prices that were changed by mistake, or use the button on a single row.</small></p>';
+		echo '<table class="widefat striped fvps-tbl" style="max-width:1100px"><thead><tr><td class="check-column"><input type="checkbox" id="fvps-hall"></td><th>Page</th><th>Vaccine</th><th>Old price</th><th>New price</th><th>Status</th><th></th></tr></thead><tbody>';
 		foreach ( $rows as $r ) {
+			$live = $r->status === 'applied';
 			printf(
-				'<tr><td><a href="%s" target="_blank">%s</a></td><td>%s</td><td>£%s</td><td>£%s</td><td>%s</td><td>%s</td></tr>',
+				'<tr><th class="check-column">%s</th><td><a href="%s" target="_blank">%s</a></td><td>%s</td><td>£%s</td><td>£%s</td><td>%s</td><td>%s</td></tr>',
+				$live ? '<input type="checkbox" class="fvps-hsel" name="ids[]" value="' . (int) $r->id . '" form="fvps-bulk">' : '',
 				esc_url( $r->post_url ),
 				esc_html( $r->post_title ),
 				esc_html( $r->label ),
 				esc_html( $r->old_price ),
 				esc_html( $r->new_price ),
-				$r->status === 'applied' ? '<span class="fvps-ok">applied</span>' : 'rolled back ' . esc_html( $r->rolled_back_at ),
-				$r->status === 'applied' ? self::form( 'rollback', '<input type="hidden" name="log_id" value="' . (int) $r->id . '"><button class="button button-small">Restore £' . esc_attr( $r->old_price ) . '</button>', 'style="display:inline"' ) : ''
+				$live ? '<span class="fvps-ok">applied</span>' : 'rolled back ' . esc_html( $r->rolled_back_at ),
+				$live ? '<button class="button button-small" name="log_id" value="' . (int) $r->id . '" form="fvps-bulk" onclick="return confirm(\'Restore £' . esc_attr( $r->old_price ) . ' on this page?\')">Restore £' . esc_html( $r->old_price ) . '</button>' : ''
 			);
 		}
 		echo '</tbody></table>';
+		?>
+		<script>
+		(function(){var a=document.getElementById('fvps-hall');if(a)a.addEventListener('change',function(){document.querySelectorAll('.fvps-hsel').forEach(function(c){c.checked=a.checked;});});})();
+		</script>
+		<?php
 	}
 
 	private static function tab_settings() {
