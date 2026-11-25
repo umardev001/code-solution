@@ -108,6 +108,7 @@ class FVPS_Admin {
 			'post_types' => $types,
 			'aliases'    => sanitize_textarea_field( wp_unslash( $_POST['aliases'] ) ),
 			'auto_sync'  => empty( $_POST['auto_sync'] ) ? 0 : 1,
+			'delete_data' => empty( $_POST['delete_data'] ) ? 0 : 1,
 		);
 		update_option( FVPS_Core::OPT, $new );
 		delete_transient( FVPS_Core::SRC_KEY );
@@ -327,7 +328,8 @@ class FVPS_Admin {
 		}
 		$inner .= '</td></tr>';
 		$inner .= '<tr><th>Extra name mappings</th><td><textarea name="aliases" rows="8" class="large-text code" placeholder="Rabies prophylaxis = Rabies (pre-exposure)">' . esc_textarea( $s['aliases'] ) . '</textarea><p class="description">One per line: <code>name used on this site = exact vaccine name on the source page</code>. Names that are the same on both sites are matched automatically.</p></td></tr>';
-		$inner .= '<tr><th>Daily auto-sync</th><td><label><input type="checkbox" name="auto_sync" value="1" ' . checked( ! empty( $s['auto_sync'] ), true, false ) . '> Automatically update prices once a day (changes are still logged and can be undone)</label></td></tr></table>';
+		$inner .= '<tr><th>Daily auto-sync</th><td><label><input type="checkbox" name="auto_sync" value="1" ' . checked( ! empty( $s['auto_sync'] ), true, false ) . '> Automatically update prices once a day (changes are still logged and can be undone)</label></td></tr>';
+		$inner .= '<tr><th>When plugin is deleted</th><td><label><input type="checkbox" name="delete_data" value="1" ' . checked( ! empty( $s['delete_data'] ), true, false ) . '> Also delete all settings and the change history (cannot be undone). Leave unticked to keep them.</label></td></tr></table>';
 		$inner .= '<p><button class="button button-primary">Save settings</button></p>';
 		echo self::form( 'save_settings', $inner );
 

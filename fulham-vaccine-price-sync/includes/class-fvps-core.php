@@ -51,6 +51,7 @@ class FVPS_Core {
 			'post_types' => array( 'page', 'post' ),
 			'aliases'    => '',
 			'auto_sync'  => 0,
+			'delete_data' => 0,
 		);
 		$s = get_option( self::OPT, array() );
 		return wp_parse_args( is_array( $s ) ? $s : array(), $d );
